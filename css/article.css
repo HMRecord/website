@@ -1,11 +1,22 @@
-#title {
-
+.article {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 800px;
 }
 
 h4 {
 	font-size:14px;
 }
 
-h4 a {
+h4 a, h4 a:hover {
 	color:inherit;
+}
+
+.content {
+	font-size:1.15em;
+	line-height: 1.5em;
+}
+
+p {
+	text-indent: 50px;
 }
