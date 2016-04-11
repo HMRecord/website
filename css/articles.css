@@ -1,0 +1,45 @@
+#articles {
+	margin-top:20px;
+}
+
+#headerBreaker {
+	border: none;
+	height: 3px;
+	margin-top:0em;
+	background-color: #841212
+}
+
+#articles .heading {
+	font-weight:700;
+	font-size:1.3em;
+	margin-bottom:8px;
+
+	text-align:left;
+}
+
+#articles .heading a, #articles .author a  {
+	color: inherit;
+}
+
+#articles .image {
+	width: 100%;
+	height: 200px;
+
+	background-position: 50% 15%;
+	background-size: 100%;
+
+	margin-bottom:10px;
+
+	background-repeat:no-repeat;
+}
+
+#articles .author {
+	color:#999;
+	font-size:.8em;
+	margin-top:4px;
+	font-weight:400;
+}
+
+#articles .article {
+	margin-bottom:20px;
+}

@@ -12,6 +12,9 @@
 		<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Lato:400,300,700,400italic,300italic' rel='stylesheet' type='text/css'>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/index.css" rel="stylesheet">
+		<link href="css/navbar.css" rel="stylesheet">
+		<link href="css/header.css" rel="stylesheet">
+		<link href="css/articles.css" rel="stylesheet">
 	</head>
 	<body>
 		<?php include 'include/navbar.php'; ?>
@@ -39,10 +42,16 @@
 
 					<div class="heading"><a href="/article/articleid">Sarah Palin Announces Bid for Vice Presidency</a></div>
 					<div class="author">By <a href="author/authorname">JOSHUA GRUENSTEIN</a></div>
+					<div class="article">
+						Lorem ipsum dolor sit amet, has cu justo quaerendum delicatissimi, ad nec illum tamquam. Et consul eligendi qui, ius ut quis doming percipit, vel et meis praesent. His graecis blandit eu, nam te sententiae temporibus, sea nullam tritani indoctum ea. Ne labore scripta vel, cu cum recteque reprimique delicatissimi. Mel inani integre intellegebat ne, eam quod democritum ei, an summo torquatos vix. Vix te eruditi feugait adipiscing, dictas inciderint no quo.
+					</div>
 				</div>
 				<div class="col-sm-3">
 					<div class="heading"><a href="/article/articleid">Horace Mann School Wins a Football Game</a></div>
 					<div class="author">By <a href="author/authorname">JOSHUA GRUENSTEIN</a></div>
+					<div class="article">
+						Lorem ipsum dolor sit amet, has cu justo quaerendum delicatissimi, ad nec illum tamquam. Et consul eligendi qui, ius ut quis doming percipit, vel et meis praesent. His graecis blandit eu, nam te sententiae temporibus, sea nullam tritani indoctum ea. Ne labore scripta vel, cu cum recteque reprimique delicatissimi. Mel inani integre intellegebat ne, eam quod democritum ei, an summo torquatos vix. Vix te eruditi feugait adipiscing, dictas inciderint no quo.
+					</div>
 				</div>
 			</div>
 		</div>
