@@ -24,7 +24,6 @@ $(document).ready(function() {
 		}
 	});
 
-
 	$("#searchBtn").click(function() {
 		var query = $("#searchField").val();
 		if (query !== "") {
