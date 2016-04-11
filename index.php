@@ -28,13 +28,19 @@
 
 			<div class="row">
 				<div class="col-sm-3">
-					<div class="articleHeading">Jesus Returns, Wins World Cup</div>
+					<div class="heading">Jesus Returns, Wins World Cup</div>
+					<div class="image" style="background-image: url('http://www.newyorker.com/wp-content/uploads/2016/02/Williams-The-Downfall-Russian-Soccer-Team-1200.jpg');"></div>
+					<div class="author">By JOSHUA GRUENSTEIN</div>
 				</div>
 				<div class="col-sm-6">
-					<div class="articleHeading">Sarah Palin Announces Bid for Vice Presidency</div>
+					<div class="heading">Sarah Palin Announces Bid for Vice Presidency</div>
+					<div class="image" style="background-image: url('http://media.salon.com/2010/02/palin_at_tpn_inc-1280x960.jpg');"></div>
+					<div class="author">By JOSHUA GRUENSTEIN</div>
 				</div>
 				<div class="col-sm-3">
-					<div class="articleHeading">Horace Mann School Wins a Football Game</div>
+					<div class="heading">Horace Mann School Wins a Football Game</div>
+					<div class="image" style="background-image: url('http://www.horacemann.org/uploaded/HoraceMann/Images/News/2012-2013_News/101312_0520.JPG');"></div>
+					<div class="author">By JOSHUA GRUENSTEIN</div>
 				</div>
 			</div>
 		</div>
