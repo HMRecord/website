@@ -23,7 +23,7 @@
 			</li>
 
 		</ul>
-		<form class="navbar-form navbar-right" role="search" id="navSearch">
+		<div class="navbar-form navbar-right" role="search" id="navSearch">
 			<div class="form-group">
 				<div class="input-group">
 					<input type="text" class="form-control input-sm" id="searchField" placeholder="Search">
@@ -32,6 +32,6 @@
 					</span>
 				</div>
 			</div>
-		</form>
+		</div>
 	</div>
 </nav>
