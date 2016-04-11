@@ -3,10 +3,7 @@ var getArticle = {
 		var article = {
 			id:555,
 			title:"The Spirit of Triumph",
-			author: {
-				id:69,
-				name:"Donald Trump"
-			},
+			author: getAuthor.byID(69),
 			date:"May 7, 2018",
 			content:"Hello World."
 		};
@@ -14,10 +11,10 @@ var getArticle = {
 		return article;
 	},
 	byQuery: function(query) {
-		return ["hello","world"];
+		return [this.byID(69),this.byID(69)];
 	},
 	byAuthor: function(authorID) {
-		return ["hello","world"];
+		return [this.byID(69),this.byID(69)];
 	}
 }
 
@@ -25,7 +22,8 @@ var getAuthor = {
 	byID: function(id) {
 		var author = {
 			id:69,
-			name:"Donald Trump"
+			name:"Donald Trump",
+			position:"Editor in Chief"
 		};
 
 		return author;

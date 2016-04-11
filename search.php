@@ -23,14 +23,7 @@
 
 			<hr />
 
-			<div id="articleBox">
-				<div class="article">
-					<div class="title"><a href="article/articlename">Horace Mann Robotics Places First at World Champtionship</a></div>
-					<div class="author">By <a href="author/authorname">JOSHUA GRUENSTEIN</a></div>
-					<div class="content">Lorem ipsum dolor sit amet, has cu justo quaerendum delicatissimi, ad nec illum tamquam. Et consul eligendi qui, ius ut quis doming percipit, vel et meis praesent. His graecis blandit eu, nam te sententiae temporibus, sea nullam tritani indoctum ea. Ne labore scripta vel, cu cum recteque reprimique delicatissimi.</div>
-				</div>
-			</div>
-
+			<div id="articleBox"></div>
 		</div>
 
 		<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
