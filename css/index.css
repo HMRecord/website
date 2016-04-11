@@ -22,18 +22,21 @@ body {
 
 #articles .image {
 	width: 100%;
-	height: 150px;
+	height: 200px;
 
 	background-position: 50% 15%;
 	background-size: 100%;
 
-	margin-top:10px;
+	margin-bottom:10px;
 
 	background-repeat:no-repeat;
 }
 
-#articles .caption {
-	
+#articles .author {
+	color:#999;
+	font-size:.8em;
+	margin-top:4px;
+	font-weight:400;
 }
 
 .navbar {
