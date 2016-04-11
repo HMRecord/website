@@ -31,7 +31,7 @@
 					<div class="articleHeading">Jesus Returns, Wins World Cup</div>
 				</div>
 				<div class="col-sm-6">
-					<div class="articleHeading">Sarah Palin Announced Bid for Vice Presidency</div>
+					<div class="articleHeading">Sarah Palin Announces Bid for Vice Presidency</div>
 				</div>
 				<div class="col-sm-3">
 					<div class="articleHeading">Horace Mann School Wins a Football Game</div>
