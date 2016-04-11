@@ -8,18 +8,8 @@
 		</button>
 	</div>
 	<div id="navbar" class="navbar-collapse collapse">
-		<form class="navbar-form navbar-left" role="search">
-			<div class="form-group">
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search">
-					<span class="input-group-btn">
-					<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-					</span>
-				</div>
-			</div>
-		</form>
-		<ul class="nav navbar-nav navbar-right">
-			<li class="dropdown" style="margin-right:20px">
+		<ul class="nav navbar-nav navbar-left">
+			<li class="dropdown" id="navDrop">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sections<span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href="#">Opinions</a></li>
@@ -28,5 +18,15 @@
 				</ul>
 			</li>
 		</ul>
+		<form class="navbar-form navbar-right" role="search" id="navSearch">
+			<div class="form-group">
+				<div class="input-group">
+					<input type="text" class="form-control input-sm" placeholder="Search">
+					<span class="input-group-btn">
+					<button class="btn btn-default input-sm" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+					</span>
+				</div>
+			</div>
+		</form>
 	</div>
 </nav>
