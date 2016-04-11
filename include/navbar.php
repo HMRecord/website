@@ -9,9 +9,9 @@
 	</div>
 	<div id="navbar" class="navbar-collapse collapse">
 		<ul class="nav navbar-nav navbar-left">
-			<a href="/" class="btn btn-default btn-sm navbar-btn" id="navHome">
+			<li><a href="/" id="navHome">
 				<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-			</a>
+			</a></li>
 
 			<li class="dropdown" id="navDrop">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sections<span class="caret"></span></a>
