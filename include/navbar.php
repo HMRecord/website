@@ -9,6 +9,10 @@
 	</div>
 	<div id="navbar" class="navbar-collapse collapse">
 		<ul class="nav navbar-nav navbar-left">
+			<a href="/" class="btn btn-default btn-sm navbar-btn" id="navHome">
+				<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+			</a>
+
 			<li class="dropdown" id="navDrop">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sections<span class="caret"></span></a>
 				<ul class="dropdown-menu">
@@ -17,6 +21,7 @@
 					<li><a href="#">Lions Den</a></li>
 				</ul>
 			</li>
+
 		</ul>
 		<form class="navbar-form navbar-right" role="search" id="navSearch">
 			<div class="form-group">
