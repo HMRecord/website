@@ -22,7 +22,7 @@ body {
 
 	font-family: 'Lora', serif;
 	font-size:16px;
-	width:400px;
+	width:380px;
 
 	margin:0 auto;
 	text-align:center;
@@ -39,8 +39,13 @@ body {
 	margin-top:8px;
 }
 
+.header h1 {
+	font-size:2.6em;
+}
+
 .header h4 {
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
 	font-style: italic;
+	font-size:1em;
 }
