@@ -8,13 +8,20 @@
 		<meta name="author" content="">
 		<link rel="shortcut icon" href="img/favicon.ico" />
 		<title>HM Record</title>
+
+		<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Lato:400,300,700,400italic,300italic' rel='stylesheet' type='text/css'>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/index.css" rel="stylesheet">
 	</head>
 	<body>
 		<?php include 'include/navbar.php'; ?>
 
-		<div class="container">
+		<div class="container header">
+			<span id="headerDate">April 11, 2016</span>
+			<h1>The Record</h1>
+			<hr />
+			<h4>Horace Mann's Weekly Newspaper Since 1913.</h4>
+
 		</div>
 
 		<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>

@@ -1,0 +1,46 @@
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+.navbar {
+	background: none;
+	border: none;
+
+}
+
+#navDrop {
+	margin-left:10px;
+}
+
+#navSearch {
+	margin-right:10px;
+	margin-top:12px;
+}
+
+.header {
+	margin-top:-52px !important;
+
+	font-family: 'Lora', serif;
+	font-size:16px;
+	width:400px;
+
+	margin:0 auto;
+	text-align:center;
+}
+
+.header #headerDate {
+	font-family: 'Lato', sans-serif;
+	font-size:.8em;
+	font-weight:700;
+}
+
+
+.header hr {
+	margin-top:8px;
+}
+
+.header h4 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	font-style: italic;
+}
