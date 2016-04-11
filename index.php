@@ -21,7 +21,22 @@
 			<h1>The Record</h1>
 			<hr />
 			<h4>Horace Mann's Weekly Newspaper Since 1913.</h4>
+		</div>
 
+		<div class="container" id="articles">
+			<hr id="headerBreaker" />
+
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="articleHeading">Jesus Returns, Wins World Cup</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="articleHeading">Sarah Palin Announced Bid for Vice Presidency</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="articleHeading">Horace Mann School Wins a Football Game</div>
+				</div>
+			</div>
 		</div>
 
 		<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>

@@ -1,5 +1,24 @@
 body {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Lora', serif;
+}
+
+#articles {
+	margin-top:20px;
+}
+
+#headerBreaker {
+	border: none;
+	height: 3px;
+	margin-top:0em;
+	background-color: #841212
+}
+
+
+.articleHeading {
+	font-weight:700;
+	font-size:1.2em;
+
+	text-align:center;
 }
 
 .navbar {
@@ -20,7 +39,6 @@ body {
 .header {
 	margin-top:-52px !important;
 
-	font-family: 'Lora', serif;
 	font-size:16px;
 	width:380px;
 
