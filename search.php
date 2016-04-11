@@ -19,7 +19,7 @@
 		<?php include 'include/navbar.php'; ?>
 
 		<div class="container">
-			<h2>Record Search Results for "<span id="headerQuery"></span>":</h2>
+			<h2>Record Search Results for &#8220;<span id="headerQuery"></span>&#8221;:</h2>
 
 			<hr />
 
