@@ -15,6 +15,6 @@ function renderArticles(articles) {
 $(document).ready(function() {
 	var query = decodeURIComponent(window.location.href.split('?')[1]);
 	$("#headerQuery").text(query);
-	var results = fetchArticlesFromQuery(query);
+	var results = getArticle.byQuery(query);
 	renderArticles(results);
 });
