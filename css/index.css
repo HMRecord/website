@@ -15,9 +15,14 @@ body {
 
 #articles .heading {
 	font-weight:700;
-	font-size:1.2em;
+	font-size:1.3em;
+	margin-bottom:8px;
 
-	text-align:center;
+	text-align:left;
+}
+
+#articles .heading a, #articles .author a  {
+	color: inherit;
 }
 
 #articles .image {
