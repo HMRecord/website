@@ -1,7 +1,7 @@
 var password = "";
 
-function passResponse(ok) {
-	var string = '<div class="alert alert-' + (ok?'success':'danger') + ' alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>' + (ok?'Login succesful.</strong>  Administrator access enabled.':'Incorrect password.</strong>  Please try again.')+'</div>';
+function passResponse(good, header, contents) {
+	var string = '<div class="alert alert-' + (good?'success':'danger') + ' alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>' + header + '</strong> ' + contents + '</div>';
 	$("#alertBox").html(string);
 }
 
@@ -18,8 +18,8 @@ $(document).ready(function() {
 		if (admin.verifyPass(pass) === "good") {
 			$("#adminBox").css("display","block");
 			$("#loginBox").css("display","none");
-			passResponse(true);
+			passResponse(true,"Login succesful.","Admin access enabled.");
 			password = pass;
-		} else passResponse(false);
+		} else passResponse(false, "Incorrect password.","Please try again.");
 	});
 });
