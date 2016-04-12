@@ -14,6 +14,36 @@ function setDate() {
 	$("#headerDate").text(monthNames[monthIndex] + " " + day + ", " + year);
 }
 
+function stringifyArticle(article) {
+	var string = "<div class='article'>";
+	if (article.hasOwnProperty('img')) {
+		string += "<div class='image' style=\'background-image: url(\""
+				+ article.img + "\");\'></div>";
+
+	} string += "<div class='heading'><a href='article.php?'"
+			  + article.id + "'>" + article.title
+			  + "</a></div><div class='author'>by "
+			  + getStaffLink(article.author)
+			  + "</div><div class='content'>"
+			  + article.content + "</div></div>";
+	return string;
+}
+
+function populateArticles(articles) {
+	var left = "", middle = "", right = "";
+
+	for (var i=1; i<=articles.length; i++) {
+		if (i%3 == 1) left += stringifyArticle(articles[i-1]);
+		else if (i%3 == 2) middle += stringifyArticle(articles[i-1]);
+		else right += stringifyArticle(articles[i-1]);
+	}
+
+	$("#leftColumn").html(left);
+	$("#middleColumn").html(middle);
+	$("#rightColumn").html(right);
+}
+
 $(document).ready(function() {
+	populateArticles(testArticles);
 	setDate();
 });

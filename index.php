@@ -20,7 +20,7 @@
 		<?php include 'include/navbar.php'; ?>
 
 		<div class="container header">
-			<span id="headerDate">April 11, 2016</span>
+			<span id="headerDate"></span>
 			<h1>The Record</h1>
 			<hr />
 			<h4>Horace Mann's Weekly Newspaper Since 1913.</h4>
@@ -28,31 +28,10 @@
 
 		<div class="container" id="articles">
 			<hr id="headerBreaker" />
-
 			<div class="row">
-				<div class="col-sm-3">
-					<div class="heading"><a href="article.php?articleid">Jesus Returns, Wins World Cup</a></div>
-					<div class="author">by <a href="staff.php?staffid">JOSHUA GRUENSTEIN</a></div>
-					<div class="article">
-						Lorem ipsum dolor sit amet, has cu justo quaerendum delicatissimi, ad nec illum tamquam. Et consul eligendi qui, ius ut quis doming percipit, vel et meis praesent. His graecis blandit eu, nam te sententiae temporibus, sea nullam tritani indoctum ea. Ne labore scripta vel, cu cum recteque reprimique delicatissimi. Mel inani integre intellegebat ne, eam quod democritum ei, an summo torquatos vix. Vix te eruditi feugait adipiscing, dictas inciderint no quo.
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="image" style="background-image: url('http://media.salon.com/2010/02/palin_at_tpn_inc-1280x960.jpg');"></div>
-
-					<div class="heading"><a href="article.php?articleid">Sarah Palin Announces Bid for Vice Presidency</a></div>
-					<div class="author">by <a href="staff.php?staffid">JOSHUA GRUENSTEIN</a></div>
-					<div class="article">
-						Lorem ipsum dolor sit amet, has cu justo quaerendum delicatissimi, ad nec illum tamquam. Et consul eligendi qui, ius ut quis doming percipit, vel et meis praesent. His graecis blandit eu, nam te sententiae temporibus, sea nullam tritani indoctum ea. Ne labore scripta vel, cu cum recteque reprimique delicatissimi. Mel inani integre intellegebat ne, eam quod democritum ei, an summo torquatos vix. Vix te eruditi feugait adipiscing, dictas inciderint no quo.
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="heading"><a href="article.php?articleid">Horace Mann School Wins a Football Game</a></div>
-					<div class="author">by <a href="staff.php?staffid">JOSHUA GRUENSTEIN</a></div>
-					<div class="article">
-						Lorem ipsum dolor sit amet, has cu justo quaerendum delicatissimi, ad nec illum tamquam. Et consul eligendi qui, ius ut quis doming percipit, vel et meis praesent. His graecis blandit eu, nam te sententiae temporibus, sea nullam tritani indoctum ea. Ne labore scripta vel, cu cum recteque reprimique delicatissimi. Mel inani integre intellegebat ne, eam quod democritum ei, an summo torquatos vix. Vix te eruditi feugait adipiscing, dictas inciderint no quo.
-					</div>
-				</div>
+				<div class="col-sm-3" id="leftColumn"></div>
+				<div class="col-sm-6" id="middleColumn"></div>
+				<div class="col-sm-3" id="rightColumn"></div>
 			</div>
 		</div>
 
@@ -61,6 +40,7 @@
 
 		<script src="js/general.js"></script>
 		<script src="js/backend.js"></script>
+		<script src="js/testArticles.js"></script>
 		<script src="js/index.js"></script>
 	</body>
 </html>
