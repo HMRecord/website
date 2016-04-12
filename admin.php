@@ -26,53 +26,51 @@
 					<button class="btn btn-default" type="button" id="passBtn">Login</button>
 				</span>
 			</div>
-			<div id="adminBox">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title">Add Staff Member</h3>
-					  		</div>
-					  		<div class="panel-body">
-								<div class="formBox">
-									<div class="form-group">
-									    <label for="newStaffName" class="col-sm-2 control-label">Name</label>
-									    <div class="col-sm-10">
-											<input type="text" class="form-control" id="newStaffName" placeholder="John Doe">
-									    </div>
-									</div>
-									<div class="form-group">
-										<label for="newStaffPosition" class="col-sm-2 control-label">Position</label>
-										<div class="col-sm-10">
-											<input type="text" class="form-control" id="newStaffPosition" placeholder="Writer">
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="col-sm-offset-2 col-sm-10">
-											<button type="submit" class="btn btn-block btn-default">Add</button>
-										</div>
+			<div id="adminBox" class="row">
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Add Staff Member</h3>
+				  		</div>
+				  		<div class="panel-body">
+							<div class="formBox">
+								<div class="form-group">
+								    <label for="newStaffName" class="col-sm-2 control-label">Name</label>
+								    <div class="col-sm-10">
+										<input type="text" class="form-control" id="newStaffName" placeholder="John Doe">
+								    </div>
+								</div>
+								<div class="form-group">
+									<label for="newStaffPosition" class="col-sm-2 control-label">Position</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="newStaffPosition" placeholder="Writer">
 									</div>
 								</div>
-					  		</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title">Upload Articles</h3>
-					  		</div>
-					  		<div class="panel-body">
-					    		Panel content
-					  		</div>
-						</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="submit" class="btn btn-block btn-default">Add</button>
+									</div>
+								</div>
+							</div>
+				  		</div>
 					</div>
 				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">Upload New Issue</h3>
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Upload Articles</h3>
+				  		</div>
+				  		<div class="panel-body">
+				    		Panel content
+				  		</div>
 					</div>
-					<div class="panel-body">
-						Panel content
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Upload New Issue</h3>
+						</div>
+						<div class="panel-body">
+							Panel content
+						</div>
 					</div>
 				</div>
 			</div>
