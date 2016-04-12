@@ -20,6 +20,7 @@
 
 		<div class="container article" id="articleContainer">
 			<div id="img"></div>
+			<div id="caption"></div>
 
 			<h2 id="title"></h2>
 			<h4 id="author"></h4>

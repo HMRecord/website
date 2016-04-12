@@ -24,6 +24,11 @@ function renderArticle(article) {
 		$img.css("background-repeat","no-repeat");
 		$img.css("width","100%");
 		$img.css("height","300px");
+		$img.css("margin-bottom","4px");
+
+		var staff = article.imgcite;
+		$("#caption").html("Image Credit: <a href='staff.php?" + staff.id
+						 + "'>" + staff.name.toUpperCase() + "</a>");
 	}
 }
 
