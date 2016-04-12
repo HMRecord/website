@@ -15,9 +15,15 @@ def article():
     if request.args.get('sectionID') is not None:
         return dumps([a for a in db.article.find({"sectionID": request.args.get('sectionID')})])
     if request.args.get('articleID') is not None:
-        return dumps([a for a in db.article.find({"sectionID": request.args.get('articleID')})])
+        return dumps([a for a in db.article.find({"articleID": request.args.get('articleID')})])
     if request.args.get('staffID') is not None:
         return dumps([a for a in db.article.find({"sectionID": request.args.get('staffID')})])
+
+
+@app.route('/api/staff', methods=['GET'])
+def staff():
+    if request.args.get('staffID') is not None:
+        return dumps([a for a in db.staff.find({"staffID": request.args.get('staffID')})])
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
