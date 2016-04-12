@@ -25,7 +25,7 @@ function stringifyArticle(article) {
 			  + "</a></div><div class='author'>by "
 			  + getStaffLink(article.author)
 			  + "</div><div class='content'>"
-			  + article.content + "</div></div>";
+			  + getNWords(article.content,50) + "</div></div>";
 	return string;
 }
 

@@ -4,7 +4,8 @@ function renderArticles(articles) {
 	articles.forEach(function(article) {
 		string += '<div class="article"><div class="title"><a href="article.php?'
 				+ article.id + '">' + article.title + '</a></div><div class="author">'
-				+ 'by ' + getStaffLink(article.author) + '</div><div class="content">' + article.content + '</div></div>';
+				+ 'by ' + getStaffLink(article.author) + '</div><div class="content">'
+				+ getNWords(article.content,30) + '</div></div>';
 	});
 
 	$("#articleBox").html(string);

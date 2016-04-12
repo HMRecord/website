@@ -1,3 +1,13 @@
+function getNWords(input, n) {
+	var returnVal = input.split(/\s+/).slice(0,n).join(" ");
+	if (returnVal.length < input.length) {
+		while (!returnVal.charAt(returnVal.length-1).match(/[a-z]/i)) {
+			returnVal = returnVal.substring(0,returnVal.length-1);
+		} returnVal += "..."
+	}
+	return returnVal;
+}
+
 function getQuery() {
 	return decodeURIComponent(window.location.href.split('?')[1]);
 }
