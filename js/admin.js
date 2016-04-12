@@ -31,5 +31,15 @@ $(document).ready(function() {
 			if (admin.newStaff(name,position,password) === "good") bootAlert(true,"Staff registration succesful.","Welcome, "+name+".");
 			else bootAlert(false,"Uh oh.","Something unexpected happened.");
 		} else bootAlert(false,"Blank fields.","Please check all fields are filled in.");
-	})
+	});
+
+	$("#editStaffBtn").click(function() {
+		var name = $("#editStaffName").val();
+		var position = $("#editStaffPosition").val();
+
+		if (name !== "" && position !== "") {
+			if (admin.editStaff(name,position,password) === "good") bootAlert(true,"Staff position change succesful.","Congrats, "+name+".");
+			else bootAlert(false,"Uh oh.","Something unexpected happened.");
+		} else bootAlert(false,"Blank fields.","Please check all fields are filled in.");
+	});
 });

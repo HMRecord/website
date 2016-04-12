@@ -37,6 +37,9 @@ var admin = {
 	},
 	newStaff: function(name,position,pass) {
 		return "good";
+	},
+	editStaff: function(name,position,pass) {
+		return "good";
 	}
 }
 

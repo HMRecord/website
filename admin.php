@@ -54,6 +54,32 @@
 							</div>
 				  		</div>
 					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Edit Staff Member</h3>
+				  		</div>
+				  		<div class="panel-body">
+							<div class="formBox">
+								<div class="form-group">
+								    <label for="newStaffName" class="col-sm-2 control-label">Name</label>
+								    <div class="col-sm-10">
+										<input type="text" class="form-control" id="editStaffName" placeholder="John Doe">
+								    </div>
+								</div>
+								<div class="form-group">
+									<label for="newStaffPosition" class="col-sm-2 control-label">New Position</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="editStaffPosition" placeholder="Editor in Chief">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="submit" id="editStaffBtn" class="btn btn-block btn-default">Submit</button>
+									</div>
+								</div>
+							</div>
+				  		</div>
+					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="panel panel-default">
