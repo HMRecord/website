@@ -13,7 +13,7 @@ db = client.record
 @app.route('/api/article', methods=['GET'])
 def article():
     if request.args.get('sectionID') is not None:
-        return dumps([a for a in db.article.find({"sectionID": request.args.get('sectionID')})])
+        return dumps([a for a in db.article.find({"_id": request.args.get('sectionID')})])
     if request.args.get('articleID') is not None:
         return dumps([a for a in db.article.find({"articleID": request.args.get('articleID')})])
     if request.args.get('staffID') is not None:
@@ -23,7 +23,13 @@ def article():
 @app.route('/api/staff', methods=['GET'])
 def staff():
     if request.args.get('staffID') is not None:
-        return dumps([a for a in db.staff.find({"staffID": request.args.get('staffID')})])
+        return dumps([a for a in db.staff.find({"_id": request.args.get('staffID')})])
+
+
+@app.route('/api/section', methods=['GET'])
+def section():
+    if request.args.get('sectionID') is not None:
+        return dumps([a for a in db.section.find({"_id": request.args.get('sectionID')})])
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
