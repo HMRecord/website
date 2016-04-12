@@ -11,16 +11,16 @@ function renderArticles(articles) {
 }
 
 
-function renderAuthor(author) {
-	document.title = "HM Record: " + author.name;
+function renderStaff(staff) {
+	document.title = "HM Record: " + staff.name;
 
-	$("#name").text(author.name);
-	$("#position").text(author.position);
+	$("#name").text(staff.name);
+	$("#position").text(staff.position);
 
-	renderArticles(getArticle.byAuthor(author.id));
+	renderArticles(getArticle.byStaff(staff.id));
 }
 
 $(document).ready(function() {
 	var id = decodeURIComponent(window.location.href.split('?')[1]);
-	renderAuthor(getAuthor.byID(id));
+	renderStaff(getStaff.byID(id));
 });

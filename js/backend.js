@@ -3,7 +3,7 @@ var getArticle = {
 		var article = {
 			id:555,
 			title:"The Spirit of Triumph",
-			author: getAuthor.byID(69),
+			author: getStaff.byID(69),
 			date:"May 7, 2018",
 			content:"Hello World.",
 			img:"http://static.euronews.com/articles/308145/1200x630_308145_donald-trump-says-he-s-running-for-u.jpg?1434476649"
@@ -14,19 +14,19 @@ var getArticle = {
 	byQuery: function(query) {
 		return [this.byID(69),this.byID(69)];
 	},
-	byAuthor: function(authorID) {
+	byStaff: function(staffID) {
 		return [this.byID(69),this.byID(69)];
 	}
 }
 
-var getAuthor = {
+var getStaff = {
 	byID: function(id) {
-		var author = {
+		var staff = {
 			id:69,
 			name:"Donald Trump",
 			position:"Editor in Chief"
 		};
 
-		return author;
+		return staff;
 	}
 }
