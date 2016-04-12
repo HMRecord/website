@@ -20,7 +20,7 @@ function stringifyArticle(article) {
 		string += "<div class='image' style=\'background-image: url(\""
 				+ article.img + "\");\'></div>";
 
-	} string += "<div class='heading'><a href='article.php?'"
+	} string += "<div class='heading'><a href='article.php?"
 			  + article.id + "'>" + article.title
 			  + "</a></div><div class='author'>by "
 			  + getStaffLink(article.author)
