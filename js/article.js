@@ -3,10 +3,6 @@ function renderArticle(article) {
 
 	$("#title").text(article.title);
 
-	if (article.author.constructor === Array) {
-
-	}
-
 	$("#author").html('<h4 id="author">by '+getStaffLink(article.author)+'</a>');
 	$("#date").text(article.date);
 

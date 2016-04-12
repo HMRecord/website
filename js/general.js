@@ -1,6 +1,14 @@
 function getStaffLink(staff) {
-	return '<a href="staff.php?' + staff.id + '">'
-		 + staff.name.toUpperCase() + '</a>';
+	var staffString = '';
+	if (staff.constructor === Array) {
+		staff.forEach(function(iStaff){
+			staffString += getStaffLink(iStaff) + ", ";
+		});
+		staffString = staffString.substring(0, staffString.length-2);
+	} else staffString = '<a href="staff.php?' + staff.id + '">'
+					   + staff.name.toUpperCase() + '</a>';
+
+	return staffString;
 }
 
 $(document).ready(function() {
