@@ -2,9 +2,12 @@ function renderArticle(article) {
 	document.title = "HM Record: " + article.title;
 
 	$("#title").text(article.title);
-	$("#author").html('<h4 id="author">by <a href="staff.php?'
-					+ article.author.id + '">'
-					+ article.author.name.toUpperCase() + '</a>');
+
+	if (article.author.constructor === Array) {
+
+	}
+
+	$("#author").html('<h4 id="author">by '+getStaffLink(article.author)+'</a>');
 	$("#date").text(article.date);
 
 	var paragraphs = article.content.split("\n");
@@ -27,8 +30,7 @@ function renderArticle(article) {
 		$img.css("margin-bottom","4px");
 
 		var staff = article.imgcite;
-		$("#caption").html("Image Credit: <a href='staff.php?" + staff.id
-						 + "'>" + staff.name.toUpperCase() + "</a>");
+		$("#caption").html("Image Credit: " + getStaffLink(staff) + "</a>");
 	}
 }
 
