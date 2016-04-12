@@ -34,6 +34,9 @@ var getStaff = {
 var admin = {
 	verifyPass: function(pass) {
 		return "good";
+	},
+	newStaff: function(name,position,pass) {
+		return "good";
 	}
 }
 
