@@ -40,7 +40,6 @@
 
 		<script src="js/general.js"></script>
 		<script src="js/backend.js"></script>
-		<script src="js/testArticles.js"></script>
 		<script src="js/index.js"></script>
 	</body>
 </html>

@@ -44,6 +44,9 @@ function populateArticles(articles) {
 }
 
 $(document).ready(function() {
-	populateArticles(testArticles);
+	var section = getQuery();
+	if (["opinions","news","sports"].indexOf(section) < 0) section = "all";
+
+	populateArticles(getArticle.bySection(section));
 	setDate();
 });

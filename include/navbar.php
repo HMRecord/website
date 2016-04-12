@@ -16,9 +16,9 @@
 			<li class="dropdown" id="navDrop">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sections<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="#">Opinions</a></li>
-					<li><a href="#">News</a></li>
-					<li><a href="#">Lions Den</a></li>
+					<li><a href="/?opinions">Opinions</a></li>
+					<li><a href="/?news">News</a></li>
+					<li><a href="/?sports">Lions Den</a></li>
 				</ul>
 			</li>
 

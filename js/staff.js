@@ -21,6 +21,5 @@ function renderStaff(staff) {
 }
 
 $(document).ready(function() {
-	var id = decodeURIComponent(window.location.href.split('?')[1]);
-	renderStaff(getStaff.byID(id));
+	renderStaff(getStaff.byID(getQuery));
 });

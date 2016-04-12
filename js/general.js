@@ -1,3 +1,7 @@
+function getQuery() {
+	return decodeURIComponent(window.location.href.split('?')[1]);
+}
+
 function getStaffLink(staff) {
 	var staffString = '';
 	if (staff.constructor === Array) {
