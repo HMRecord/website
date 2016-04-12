@@ -5,7 +5,8 @@ var getArticle = {
 			title:"The Spirit of Triumph",
 			author: getAuthor.byID(69),
 			date:"May 7, 2018",
-			content:"Hello World."
+			content:"Hello World.",
+			img:"http://static.euronews.com/articles/308145/1200x630_308145_donald-trump-says-he-s-running-for-u.jpg?1434476649"
 		};
 
 		return article;

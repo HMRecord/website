@@ -18,7 +18,9 @@
 	<body>
 		<?php include 'include/navbar.php'; ?>
 
-		<div class="container article">
+		<div class="container article" id="articleContainer">
+			<div id="img"></div>
+
 			<h2 id="title">Little Alien Men Surrender to Math Department</h2>
 			<h4 id="author">by <a href="author.php?joshuagruenstein">JOSHUA GRUENSTEIN</a></h4>
 			<h4 id="date">April 3, 2016</h4>
