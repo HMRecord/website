@@ -16,18 +16,4 @@ function setDate() {
 
 $(document).ready(function() {
 	setDate();
-
-	$('#searchField').keypress(function(e) {
-		if (e.which == 13) {
-			$('#searchBtn').click();
-			return false;
-		}
-	});
-
-	$("#searchBtn").click(function() {
-		var query = $("#searchField").val();
-		if (query !== "") {
-			window.location.href = "search.php?" + encodeURIComponent(query);
-		}
-	});
 });
