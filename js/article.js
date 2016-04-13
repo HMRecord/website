@@ -1,3 +1,25 @@
+function imageHTML(id,credit,desc) {
+	var staff = getStaff.byName(credit);
+	return "<div class='img'><img src='img/"+id+".jpg'><div class='row caption'><div class='col-xs-8 desc'>"+(desc != null ? desc : "")+"</div><div class='col-xs-4 credit'>Image Credit: <a href='staff.php?"+staff.id+"'>"+staff.name.toUpperCase()+"</a></div></div></div>";
+}
+
+function articleHTML(article) {
+	var $dom = $("<div>"+article+"</div>");
+
+	console.log($dom.children("pic"))
+
+
+	$dom.children("pic").each(function() {
+    	$(this).replaceWith(imageHTML(
+			$(this).attr("id"),
+			$(this).attr("credit"),
+			$(this).attr("desc")
+		));
+	});
+
+	return $dom.html();
+}
+
 function renderArticle(article) {
 	document.title = "HM Record: " + article.title;
 
@@ -10,7 +32,7 @@ function renderArticle(article) {
 	var contentString = "";
 
 	paragraphs.forEach(function(paragraph) {
-		contentString += "<p>" + paragraph + "</p>";
+		contentString += "<p>" + articleHTML(paragraph) + "</p>";
 	});
 
 	$("#content").html(contentString);
