@@ -2,9 +2,9 @@ function renderArticles(articles) {
 	var string = "";
 
 	articles.forEach(function(article) {
-		string += '<div class="article"><div class="title"><a href="article.php?'
-				+ encodeURIComponent(article.id) + '">' + article.title
-				+ '</a></div><div class="content">' + article.content + '</div></div>';
+		string += '<div class="article"><div class="title"><a href="article.php?';
+		string += encodeURIComponent(article.id) + '">' + article.title;
+		string += '</a></div><div class="content">' + article.content + '</div></div>';
 	});
 
 	$("#articleBox").html(string);

@@ -19,7 +19,7 @@ var getArticle = {
 	byStaff: function(staffID) {
 		return [this.byID(69),this.byID(69)];
 	}
-}
+};
 
 var getStaff = {
 	byID: function(id) {
@@ -29,7 +29,7 @@ var getStaff = {
 			position:"Editor in Chief"
 		}; return staff;
 	}
-}
+};
 
 var article2 = {
 	id:555,

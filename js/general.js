@@ -3,7 +3,7 @@ function getNWords(input, n) {
 	if (returnVal.length < input.length) {
 		while (!returnVal.charAt(returnVal.length-1).match(/[a-z]/i)) {
 			returnVal = returnVal.substring(0,returnVal.length-1);
-		} returnVal += "..."
+		} returnVal += "...";
 	}
 	return returnVal;
 }
@@ -19,8 +19,9 @@ function getStaffLink(staff) {
 			staffString += getStaffLink(iStaff) + ", ";
 		});
 		staffString = staffString.substring(0, staffString.length-2);
-	} else staffString = '<a href="staff.php?' + staff.id + '">'
-					   + staff.name.toUpperCase() + '</a>';
+	} else {
+		staffString = '<a href="staff.php?' + staff.id + '">' + staff.name.toUpperCase() + '</a>';
+	}
 
 	return staffString;
 }

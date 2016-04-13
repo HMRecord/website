@@ -17,15 +17,16 @@ function setDate() {
 function stringifyArticle(article) {
 	var string = "<div class='article'>";
 	if (article.hasOwnProperty('img')) {
-		string += "<div class='image' style=\'background-image: url(\""
-				+ article.img + "\");\'></div>";
+		string += "<div class='image' style=\'background-image: url(\"" + article.img + "\");\'></div>";
 
-	} string += "<div class='heading'><a href='article.php?"
-			  + article.id + "'>" + article.title
-			  + "</a></div><div class='author'>by "
-			  + getStaffLink(article.author)
-			  + "</div><div class='content'>"
-			  + getNWords(article.content,50) + "</div></div>";
+	}
+
+	string += "<div class='heading'><a href='article.php?";
+	string += article.id + "'>" + article.title;
+	string += "</a></div><div class='author'>by ";
+	string += getStaffLink(article.author);
+	string += "</div><div class='content'>";
+	string += getNWords(article.content,50) + "</div></div>";
 	return string;
 }
 
