@@ -11,8 +11,7 @@
 
 		<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Lato:400,300,700,400italic,300italic' rel='stylesheet' type='text/css'>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/index.css" rel="stylesheet">
-		<link href="css/navbar.css" rel="stylesheet">
+		<link href="css/general.css" rel="stylesheet">
 		<link href="css/article.css" rel="stylesheet">
 	</head>
 	<body>

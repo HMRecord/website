@@ -1,3 +1,10 @@
+/* GENERAL */
+
+body {
+	font-family: 'Lora', serif;
+}
+
+/* NAVBAR */
 .navbar {
 	background: none;
 	border: none;
