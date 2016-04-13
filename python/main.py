@@ -6,7 +6,7 @@ from bson.json_util import dumps
 import os
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = "storage"
+app.config['UPLOAD_FOLDER'] = "../storage"
 CORS(app)
 
 client = MongoClient()
