@@ -1,0 +1,17 @@
+body {
+	font-family: Lato, sans-serif;
+}
+
+#adminBox {
+	display:none;
+}
+
+@media (min-width: 768px) {
+	.formBox {
+		margin-top:-15px;
+	}
+
+	.form-group {
+		padding:15px;
+	}
+}

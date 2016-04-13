@@ -31,6 +31,18 @@ var getStaff = {
 	}
 };
 
+var admin = {
+	verifyPass: function(pass) {
+		return "good";
+	},
+	newStaff: function(name,position,pass) {
+		return "good";
+	},
+	editStaff: function(name,position,pass) {
+		return "good";
+	}
+}
+
 var article2 = {
 	id:555,
 	title:"Sarah Palin Announces Bid for Vice Presidency",
