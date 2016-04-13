@@ -41,7 +41,7 @@ var admin = {
 	editStaff: function(name,position,pass) {
 		return "good";
 	}
-}
+};
 
 var article2 = {
 	id:555,
