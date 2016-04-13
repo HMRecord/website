@@ -48,8 +48,7 @@ var article2 = {
 	author: getStaff.byID(69),
 	date:"May 12, 2018",
 	content:"Lorem ipsum dolor sit amet, has cu justo quaerendum delicatissimi, ad nec illum tamquam. Et consul eligendi qui, ius ut quis doming percipit, vel et meis praesent. His graecis blandit eu, nam te sententiae temporibus, sea nullam tritani indoctum ea. Ne labore scripta vel, cu cum recteque reprimique delicatissimi. Mel inani integre intellegebat ne, eam quod democritum ei, an summo torquatos vix. Vix te eruditi feugait adipiscing, dictas inciderint no quo.",
-	img:"http://media.salon.com/2010/02/palin_at_tpn_inc-1280x960.jpg",
-	imgcite: getStaff.byID(96)
+	img:{url:"http://media.salon.com/2010/02/palin_at_tpn_inc-1280x960.jpg",staff: getStaff.byID(96)}
 };
 
 var article1 = {
@@ -57,7 +56,7 @@ var article1 = {
 	title:"Jesus Returns, Wins World Cup",
 	author: getStaff.byID(69),
 	date:"May 7, 2018",
-	content:"Lorem ipsum dolor sit amet, has cu justo quaerendum delicatissimi, ad nec illum tamquam. Et consul eligendi qui, ius ut quis doming percipit, vel et meis praesent. His graecis blandit eu, nam te sententiae temporibus, sea nullam tritani indoctum ea. Ne labore scripta vel, cu cum recteque reprimique delicatissimi. Mel inani integre intellegebat ne, eam quod democritum ei, an summo torquatos vix. Vix te eruditi feugait adipiscing, dictas inciderint no quo."
+	content:"Lorem ipsum dolor sit amet, has cu justo quaerendum delicatissimi, ad nec illum tamquam. Et consul eligendi qui, ius ut quis doming percipit, vel et meis praesent. His graecis blandit eu, nam te sententiae temporibus, sea nullam tritani indoctum ea.<br /><img id='1234' credit='Donald Trump'><br />Ne labore scripta vel, cu cum recteque reprimique delicatissimi. Mel inani integre intellegebat ne, eam quod democritum ei, an summo torquatos vix. Vix te eruditi feugait adipiscing, dictas inciderint no quo."
 };
 
 var article3 = {

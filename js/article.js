@@ -17,7 +17,7 @@ function renderArticle(article) {
 
 	if (article.hasOwnProperty('img')) {
 		var $img = $("#img");
-		$img.css("background-image","url('" + article.img + "')");
+		$img.css("background-image","url('" + article.img.url + "')");
 		$img.css("background-size","100%");
 		$img.css("background-position","50% 20%");
 		$img.css("background-repeat","no-repeat");
