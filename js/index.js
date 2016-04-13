@@ -17,8 +17,7 @@ function setDate() {
 function stringifyArticle(article) {
 	var string = "<div class='article'>";
 	if (article.hasOwnProperty('img')) {
-		string += "<div class='image' style=\'background-image: url(\"" + article.img + "\");\'></div>";
-
+		string += "<div class='image' style=\'background-image: url(\"" + article.img.url + "\");\'></div>";
 	}
 
 	string += "<div class='heading'><a href='article.php?";

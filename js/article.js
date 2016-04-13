@@ -25,8 +25,7 @@ function renderArticle(article) {
 		$img.css("height","300px");
 		$img.css("margin-bottom","4px");
 
-		var staff = article.imgcite;
-		$("#caption").html("Image Credit: " + getStaffLink(staff) + "</a>");
+		$("#caption").html("Image Credit: " + getStaffLink(article.img.staff) + "</a>");
 	}
 }
 
