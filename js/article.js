@@ -1,13 +1,11 @@
 function imageHTML(id,credit,desc) {
 	var staff = getStaff.byName(credit);
-	return "<div class='img'><img src='img/"+id+".jpg'><div class='row caption'><div class='col-xs-8 desc'>"+(desc != null ? desc : "")+"</div><div class='col-xs-4 credit'>Image Credit: <a href='staff.php?"+staff.id+"'>"+staff.name.toUpperCase()+"</a></div></div></div>";
+	return "<div class='img'><img src='storage/"+id+".jpg'><div class='row caption'><div class='col-xs-8 desc'>"+(desc != null ? desc : "")+"</div><div class='col-xs-4 credit'>Image Credit: <a href='staff.php?"+staff.id+"'>"+staff.name.toUpperCase()+"</a></div></div></div>";
 }
 
 function articleHTML(article) {
 	var $dom = $("<div>"+article+"</div>");
-
 	console.log($dom.children("pic"))
-
 
 	$dom.children("pic").each(function() {
     	$(this).replaceWith(imageHTML(
