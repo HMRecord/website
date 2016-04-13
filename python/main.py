@@ -54,7 +54,7 @@ def section():
 def file():
     def allowed_file(filename):
         return '.' in filename and \
-           filename.rsplit('.', 1)[1] in set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+           filename.rsplit('.', 1)[1] == 'jpg'
 
     if request.method == 'POST':
         file = request.files['file']
@@ -63,5 +63,7 @@ def file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('uploaded_file',
                                     filename=filename))
+        else:
+            return "Not a valid file"
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
