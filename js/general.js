@@ -1,5 +1,6 @@
 function getNWords(input, n) {
-	var returnVal = input.split(/\s+/).slice(0,n).join(" ");
+	var returnVal = $("<div>"+input+"</div>").not('.img').not('br').html();
+	returnVal = returnVal.split(/\s+/).slice(0,n).join(" ");
 	if (returnVal.length < input.length) {
 		while (!returnVal.charAt(returnVal.length-1).match(/[a-z]/i)) {
 			returnVal = returnVal.substring(0,returnVal.length-1);
