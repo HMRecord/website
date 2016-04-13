@@ -10,20 +10,30 @@ client = MongoClient()
 db = client.record
 
 
-@app.route('/api/article', methods=['GET'])
+@app.route('/api/article', methods=['GET', 'POST'])
 def article():
-    if request.args.get('sectionID') is not None:
-        return dumps([a for a in db.article.find({"_id": request.args.get('sectionID')})])
-    if request.args.get('articleID') is not None:
-        return dumps([a for a in db.article.find({"articleID": request.args.get('articleID')})])
-    if request.args.get('staffID') is not None:
-        return dumps([a for a in db.article.find({"sectionID": request.args.get('staffID')})])
+    if request.method == 'GET':
+        if request.args.get('sectionID') is not None:
+            return dumps([a for a in db.article.find({"_id": request.args.get('sectionID')})])
+        if request.args.get('articleID') is not None:
+            return dumps([a for a in db.article.find({"articleID": request.args.get('articleID')})])
+        if request.args.get('staffID') is not None:
+            return dumps([a for a in db.article.find({"sectionID": request.args.get('staffID')})])
+    else:
+        params = request.get_json()
+        if all(a in params for a in ['title', 'content', 'sectionID', 'authorID', 'date']):
+            db.team.insert_one(params)
 
 
-@app.route('/api/staff', methods=['GET'])
+@app.route('/api/staff', methods=['GET', 'POST'])
 def staff():
-    if request.args.get('staffID') is not None:
-        return dumps([a for a in db.staff.find({"_id": request.args.get('staffID')})])
+    if request.method == 'GET':
+        if request.args.get('staffID') is not None:
+            return dumps([a for a in db.staff.find({"_id": request.args.get('staffID')})])
+    else:
+        params = request.get_json()
+        if all(a in params for a in ['name', 'position']):
+            db.team.insert_one(params)
 
 
 @app.route('/api/section', methods=['GET'])
