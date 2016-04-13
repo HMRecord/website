@@ -36,10 +36,15 @@ def staff():
             db.team.insert_one(params)
 
 
-@app.route('/api/section', methods=['GET'])
+@app.route('/api/section', methods=['GET', 'POST'])
 def section():
-    if request.args.get('sectionID') is not None:
-        return dumps([a for a in db.section.find({"_id": request.args.get('sectionID')})])
+    if request.method == 'GET':
+        if request.args.get('sectionID') is not None:
+            return dumps([a for a in db.section.find({"_id": request.args.get('sectionID')})])
+    else:
+        params = request.get_json()
+        if 'title' in params:
+            db.team.insert_one(params)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
