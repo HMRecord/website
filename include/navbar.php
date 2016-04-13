@@ -9,7 +9,7 @@
 	</div>
 	<div id="navbar" class="navbar-collapse collapse">
 		<ul class="nav navbar-nav navbar-left">
-			<li><a href="/" id="navHome">
+			<li><a href="index.php" id="navHome">
 				<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
 			</a></li>
 
