@@ -42,4 +42,27 @@ $(document).ready(function() {
 			else bootAlert(false,"Uh oh.","Something unexpected happened.");
 		} else bootAlert(false,"Blank fields.","Please check all fields are filled in.");
 	});
+
+	$("#newArticleBtn").click(function() {
+		var title = $("#newArticleTitle").val();
+		var writer = $("#newArticleWriter").val();
+		var imageid = $("#newArticleImageID").val();
+		var imagecredit = $("#newArticleImageCredit").val();
+		var file = $("#newArticleUpload")[0].files[0];
+
+
+		if (title !== "" && writer !== "" && file != null) {
+			var upload = admin.uploadArticle(title,writer,imageid,imagecredit,file);
+			if (upload !== "good") {
+				bootAlert(false, "Upload error.", upload);
+			} else {
+				bootAlert(false, "Upload succesful.", "New article added.")
+				$("#newArticleUpload").filestyle('clear');
+				$("#newArticleTitle").val("");
+				$("#newArticleWriter").val("");
+				$("#newArticleImageID").val("");
+				$("#newArticleImageCredit").val("");
+			}
+		} else bootAlert(false, "Incomplete fields.", "Please check all required fields.");
+	});
 });

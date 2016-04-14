@@ -37,6 +37,9 @@ var admin = {
 	},
 	editStaff: function(name,position,pass) {
 		return "good";
+	},
+	uploadArticle: function(title,writer,imageid,imagecredit,file,password) {
+		return "good"
 	}
 };
 
