@@ -108,4 +108,34 @@ $(document).ready(function() {
 		}
 	});
 
+	$("#imageUploadBtn").click(function() {
+		var files = $("#imageUpload")[0].files;
+
+		if (files.length < 1) {
+			bootAlert(false,"No files selected.", "Please select an image for upload.");
+			return;
+		}
+
+		var response = admin.uploadImages(files);
+		if (response.substring(0, 5) === "good: ") {
+			$("#newArticleUpload").filestyle('clear');
+			bootAlert(true, "Upload succesful.", "ID" + (files.length==1?" is ":"s are ") + response.substring(5, response.length));
+		} else bootAlert(false, "Upload failed.", response);
+	});
+
+	$("#issueUploadBtn").click(function() {
+		var files = $("issueUpload")[0].files;
+
+		if (files.length < 1) {
+			bootAlert(false,"No files selected.", "Please select an image for upload.");
+			return;
+		}
+
+		var response = admin.uploadIssues(files);
+		if (response === "good") {
+			bootAlert(true, "Upload" + (files.length==1?"":"s") + " succesful.", "");
+		} else bootAlert(false, "Upload failed.", response);
+	});
+
+
 });
