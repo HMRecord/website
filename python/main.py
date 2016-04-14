@@ -25,7 +25,9 @@ def article():
     else:
         params = request.get_json()
         if all(a in params for a in ['title', 'content', 'sectionID', 'authorID', 'date']):
-            db.team.insert_one(params)
+            db.article.insert_one(params)
+            return "Sucess"
+    return "Error"
 
 
 @app.route('/api/staff', methods=['GET', 'POST'])
@@ -36,7 +38,9 @@ def staff():
     else:
         params = request.get_json()
         if all(a in params for a in ['name', 'position']):
-            db.team.insert_one(params)
+            db.staff.insert_one(params)
+            return "Sucess"
+    return "Error"
 
 
 @app.route('/api/section', methods=['GET', 'POST'])
@@ -47,7 +51,9 @@ def section():
     else:
         params = request.get_json()
         if 'title' in params:
-            db.team.insert_one(params)
+            db.section.insert_one(params)
+            return "Sucess"
+    return "Error"
 
 
 @app.route('/api/files', methods=['POST'])
@@ -65,5 +71,6 @@ def file():
                                     filename=filename))
         else:
             return "Not a valid file"
+    return "Error"
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
