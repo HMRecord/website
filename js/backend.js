@@ -40,7 +40,7 @@ var admin = {
 	editStaff: function(name,position) {
 		return "good";
 	},
-	uploadArticle: function(title,writer,imageid,imagecredit,file) {
+	uploadArticle: function(title,writer,section,imageid,imagecredit,file) {
 		return "good";
 	},
 	deleteArticle: function(articleID) {

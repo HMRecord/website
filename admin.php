@@ -120,6 +120,12 @@
 									</div>
 								</div>
 								<div class="form-group">
+									<label for="newArticleSection" class="col-sm-2 control-label">Section</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="newArticleSection" placeholder="Opinions">
+									</div>
+								</div>
+								<div class="form-group">
 									<label for="newArticleImageID" class="col-sm-2 control-label">Header Image</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="newArticleImageID" placeholder="optional">

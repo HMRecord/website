@@ -53,13 +53,14 @@ $(document).ready(function() {
 	$("#newArticleBtn").click(function() {
 		var title = $("#newArticleTitle").val();
 		var writer = $("#newArticleWriter").val();
+		var section = $("#newArticleSection").val();
 		var imageid = $("#newArticleImageID").val();
 		var imagecredit = $("#newArticleImageCredit").val();
 		var file = $("#newArticleUpload")[0].files[0];
 
 
-		if (title !== "" && writer !== "" && file != null) {
-			var upload = admin.uploadArticle(title,writer,imageid,imagecredit,file);
+		if (title !== "" && writer !== "" && section !== "" && file != null) {
+			var upload = admin.uploadArticle(title,writer,section,imageid,imagecredit,file);
 			if (upload !== "good") {
 				bootAlert(false, "Upload error.", upload);
 			} else {
@@ -69,6 +70,7 @@ $(document).ready(function() {
 				$("#newArticleWriter").val("");
 				$("#newArticleImageID").val("");
 				$("#newArticleImageCredit").val("");
+				$("#newArticleSection").val("");
 			}
 		} else bootAlert(false, "Incomplete fields.", "Please check all required fields.");
 	});
