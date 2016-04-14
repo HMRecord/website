@@ -1,17 +1,37 @@
+var API_URL = window.location.hostname+":5000/api/";
+var ARTICLE_URL = API_URL+"article";
+var SECTION_URL = API_URL+"section";
+
 var getArticle = {
-	bySection: function(section) {
-		return [article1, article2, article3];
+	ajaxCall: function(params) {
+		$.ajax({
+			url: ARTICLE_URL,
+			data: params,
+			success: function(result){
+        callback($.parseJSON(result));
+    	},
+			error: function() {
+				callback([])
+			}
+		});
 	},
-	byID: function(id) {
-		var article = article2;
-		article2.content = articleHTML(article2.content);
-		return article2;
+	all: function(callback) {
+		this.ajaxCall({}, callback)
+	},
+	bySection: function(sectionID, callback) {
+		this.ajaxCall({sectionID: sectionID}, callback);
+	},
+	byID: function(articleID) {
+		this.ajaxCall({articleID: articleID}, function(articleArray) {
+			if(articleArray.length == 0) callback(null);
+			else callback(articleArray[0]);
+		});
 	},
 	byQuery: function(query) {
 		return [this.byID(69),this.byID(69)];
 	},
-	byStaff: function(staffID) {
-		return [this.byID(69),this.byID(69)];
+	byStaff: function(authorID) {
+		this.ajaxCall({authorID: authorID}, callback);
 	}
 };
 
