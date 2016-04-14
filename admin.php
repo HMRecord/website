@@ -99,6 +99,34 @@
 							</div>
 				  		</div>
 					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Manage Sections</h3>
+						</div>
+						<div class="panel-body">
+							<div class="formBox">
+								<div class="form-group">
+								    <label for="sectionName" class="col-sm-2 control-label">Section</label>
+								    <div class="col-sm-10">
+										<input type="text" class="form-control" id="sectionName" placeholder="Opinions">
+								    </div>
+								</div>
+								<div class="form-group">
+									<label for="sectionRadio" class="col-sm-2 control-label">+/-</label>
+									<form class="col-sm-10" id="sectionRadio">
+										<label class="radio-inline"><input type="radio" name="sectionRadio" value="add">Add</label>
+										<label class="radio-inline"><input type="radio" name="sectionRadio" value="delete">Delete</label>
+									</form>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="submit" id="sectionBtn" class="btn btn-block btn-default">Submit</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
 				</div>
 				<div class="col-md-6">
 					<div class="panel panel-default">
@@ -161,7 +189,7 @@
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Upload New Issue</h3>
+							<h3 class="panel-title">Upload Issue</h3>
 						</div>
 						<div class="panel-body">
 							Panel content

@@ -45,6 +45,12 @@ var admin = {
 	},
 	deleteArticle: function(articleID) {
 		return "good";
+	},
+	deleteSection: function(section) {
+		return "good";
+	},
+	addSection: function(section) {
+		return "good";
 	}
 };
 

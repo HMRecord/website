@@ -85,4 +85,27 @@ $(document).ready(function() {
 			} else bootAlert(false, "Uh oh.", status);
 		} else bootAlert(false, "Incomplete fields.", "Please check all required fields.");
 	});
+
+	$("#sectionBtn").click(function() {
+		var option = $('input[name=sectionRadio]:checked', '#sectionRadio').val();
+		var section = $("#sectionName").val();
+
+		if (section === "" || option == null) {
+			bootAlert(false,"Incomplete fields.", "Please check all required fields.");
+			return;
+		}
+
+		if (option === "add") {
+			var response = admin.addSection(section);
+			if (response === "good") {
+				bootAlert(true, "Addition succesful.", "Section \""+section+"\" added.");
+			} else bootAlert(false, "Addition failed.", response);
+		} else {
+			var response = admin.deleteSection(section);
+			if (response === "good") {
+				bootAlert(true, "Deletion succesful.", "Section \""+section+"\" deleted.");
+			} else bootAlert(false, "Deletion failed.", response);
+		}
+	});
+
 });
