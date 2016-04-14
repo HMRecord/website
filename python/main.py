@@ -20,6 +20,8 @@ def article():
             return dumps([a for a in db.article.find({"_id": request.args.get('articleID')})])
         if request.args.get('sectionID') is not None:
             return dumps([a for a in db.article.find({"sectionID": request.args.get('sectionID')})])
+        if request.args.get('authorID') is not None:
+            return dumps([a for a in db.article.find({"authorIDs": {"$elemMatch": {"$in": [int(request.args.get('authorID'))]}}})])
     else:
         params = request.get_json()
         if all(a in params for a in ['title', 'content', 'sectionID', 'authorID', 'date']):
