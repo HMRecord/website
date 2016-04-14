@@ -51,5 +51,5 @@ function renderArticle(article) {
 
 $(document).ready(function() {
 	var id = decodeURIComponent(window.location.href.split('?')[1]);
-	renderArticle(getArticle.byID(id));
+	getArticle.byID(id,renderArticle);
 });
