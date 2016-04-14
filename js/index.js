@@ -45,8 +45,8 @@ function populateArticles(articles) {
 
 $(document).ready(function() {
 	var section = getQuery();
-	if (["opinions","news","sports"].indexOf(section) < 0) section = "all";
+	if (["opinions","news","sports"].indexOf(section) < 0) populateArticles(getArticle.all());
+	else populateArticles(getArticle.bySection(section));
 
-	populateArticles(getArticle.bySection(section));
 	setDate();
 });
