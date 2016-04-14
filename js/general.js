@@ -21,7 +21,7 @@ function getStaffLink(staff) {
 		});
 		staffString = staffString.substring(0, staffString.length-2);
 	} else {
-		staffString = '<a href="staff.php?' + staff.id + '">' + staff.name.toUpperCase() + '</a>';
+		staffString = '<a href="staff.php?' + staff._id.$oid + '">' + staff.name.toUpperCase() + '</a>';
 	}
 
 	return staffString;
