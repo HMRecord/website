@@ -8,9 +8,9 @@ var getArticle = {
 		$.ajax({
 			url: ARTICLE_URL,
 			data: params,
-			success: function(result){
-        callback($.parseJSON(result));
-    	},
+			success: function(result) {
+        		callback($.parseJSON(result));
+    		},
 			error: function() {
 				callback([]);
 			}
