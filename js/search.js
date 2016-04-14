@@ -3,7 +3,7 @@ function renderArticles(articles) {
 
 	articles.forEach(function(article) {
 		string += '<div class="article"><div class="title"><a href="article.php?';
-		string += article.id + '">' + article.title + '</a></div><div class="author">';
+		string += article._id.$oid + '">' + article.title + '</a></div><div class="author">';
 		string += 'by ' + getStaffLink(article.author) + '</div><div class="content">';
 		string += getNWords(article.content,30) + '</div></div>';
 	});
