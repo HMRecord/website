@@ -9,8 +9,8 @@ var getArticle = {
 			url: ARTICLE_URL,
 			data: params,
 			success: function(result) {
-        		callback($.parseJSON(result));
-    		},
+        	callback($.parseJSON(result));
+    	},
 			error: function() {
 				callback([]);
 			}
