@@ -3,8 +3,6 @@ var getArticle = {
 		return [article1, article2, article3];
 	},
 	byID: function(id) {
-		var article = article2;
-		article2.content = articleHTML(article2.content);
 		return article2;
 	},
 	byQuery: function(query) {
