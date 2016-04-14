@@ -1,7 +1,7 @@
 var API_URL = "http://"+window.location.hostname+":5000/api/";
 var ARTICLE_URL = API_URL+"article";
 var SECTION_URL = API_URL+"section";
-var SECTION_URL = API_URL+"staff";
+var STAFF_URL = API_URL+"staff";
 
 var getArticle = {
 	ajaxCall: function(params, callback) {
@@ -38,23 +38,13 @@ var getArticle = {
 
 var getStaff = {
 	ajaxCall: function(params) {
-		$.ajax({
+		return $.ajax({
 			url: STAFF_URL,
-			data: params,
-			success: function(result){
-        callback($.parseJSON(result));
-    	},
-			error: function() {
-				callback([])
-			}
-		});
+			data: params
+		}).responseJSON;
 	},
 	byID: function(id) {
-		var staff = {
-			id:69,
-			name:"Donald Trump",
-			position:"Editor in Chief"
-		}; return staff;
+		return this.ajaxCall({staffID: id});
 	},
 	byName: function(id) {
 		return this.byID(69);

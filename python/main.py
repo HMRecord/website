@@ -61,8 +61,11 @@ def article():
 @app.route('/api/staff', methods=['GET', 'POST'])
 def staff():
     if request.method == 'GET':
-        if request.args.get('staffID') is not None:
-            return dumps(getStaffs({"_id": ObjectId(request.args.get('staffID'))}))
+        try:
+            if request.args.get('staffID') is not None:
+                return dumps(getStaffs({"_id": ObjectId(request.args.get('staffID'))}))
+        except:
+            pass
         return dumps(getStaffs({}))
     else:
         params = request.get_json()
@@ -75,8 +78,11 @@ def staff():
 @app.route('/api/section', methods=['GET', 'POST'])
 def section():
     if request.method == 'GET':
-        if request.args.get('sectionID') is not None:
-            return dumps(getSections({"_id": ObjectId(request.args.get('sectionID'))}))
+        try:
+            if request.args.get('sectionID') is not None:
+                return dumps(getSections({"_id": ObjectId(request.args.get('sectionID'))}))
+        except:
+            pass
         return dumps(getSections({}))
     else:
         params = request.get_json()
