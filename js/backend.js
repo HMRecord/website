@@ -1,9 +1,10 @@
-var API_URL = window.location.hostname+":5000/api/";
+var API_URL = "http://"+window.location.hostname+":5000/api/";
 var ARTICLE_URL = API_URL+"article";
 var SECTION_URL = API_URL+"section";
+var SECTION_URL = API_URL+"staff";
 
 var getArticle = {
-	ajaxCall: function(params) {
+	ajaxCall: function(params, callback) {
 		$.ajax({
 			url: ARTICLE_URL,
 			data: params,
@@ -11,7 +12,7 @@ var getArticle = {
         callback($.parseJSON(result));
     	},
 			error: function() {
-				callback([])
+				callback([]);
 			}
 		});
 	},
@@ -36,6 +37,18 @@ var getArticle = {
 };
 
 var getStaff = {
+	ajaxCall: function(params) {
+		$.ajax({
+			url: STAFF_URL,
+			data: params,
+			success: function(result){
+        callback($.parseJSON(result));
+    	},
+			error: function() {
+				callback([])
+			}
+		});
+	},
 	byID: function(id) {
 		var staff = {
 			id:69,
