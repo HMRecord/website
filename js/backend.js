@@ -29,17 +29,22 @@ var getStaff = {
 };
 
 var admin = {
-	verifyPass: function(pass) {
+	password: "",
+	login: function(pass) {
+		password = pass;
 		return "good";
 	},
-	newStaff: function(name,position,pass) {
+	newStaff: function(name,position) {
 		return "good";
 	},
-	editStaff: function(name,position,pass) {
+	editStaff: function(name,position) {
 		return "good";
 	},
-	uploadArticle: function(title,writer,imageid,imagecredit,file,password) {
-		return "good"
+	uploadArticle: function(title,writer,imageid,imagecredit,file) {
+		return "good";
+	},
+	deleteArticle: function(articleID) {
+		return "good";
 	}
 };
 

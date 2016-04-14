@@ -79,6 +79,26 @@
 							</div>
 				  		</div>
 					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Delete Article</h3>
+						</div>
+						<div class="panel-body">
+							<div class="formBox">
+								<div class="form-group">
+								    <label for="deleteArticleID" class="col-sm-2 control-label">Article ID</label>
+								    <div class="col-sm-10">
+										<input type="text" class="form-control" id="deleteArticleID" placeholder="1234">
+								    </div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="submit" id="deleteArticleBtn" class="btn btn-block btn-default">Submit</button>
+									</div>
+								</div>
+							</div>
+				  		</div>
+					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="panel panel-default">
@@ -124,6 +144,14 @@
 								</div>
 							</div>
 				  		</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Upload Image</h3>
+						</div>
+						<div class="panel-body">
+							Panel content
+						</div>
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
