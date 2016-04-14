@@ -79,15 +79,85 @@
 							</div>
 				  		</div>
 					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Delete Article</h3>
+						</div>
+						<div class="panel-body">
+							<div class="formBox">
+								<div class="form-group">
+								    <label for="deleteArticleID" class="col-sm-2 control-label">Article ID</label>
+								    <div class="col-sm-10">
+										<input type="text" class="form-control" id="deleteArticleID" placeholder="1234">
+								    </div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="submit" id="deleteArticleBtn" class="btn btn-block btn-default">Submit</button>
+									</div>
+								</div>
+							</div>
+				  		</div>
+					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Upload Articles</h3>
+							<h3 class="panel-title">Upload Article</h3>
 				  		</div>
 				  		<div class="panel-body">
-				    		Panel content
+							<div class="formBox">
+								<div class="form-group">
+								    <label for="newStaffName" class="col-sm-2 control-label">Title</label>
+								    <div class="col-sm-10">
+										<input type="text" class="form-control" id="newArticleTitle" placeholder="Students Develop Novel Robot Control System, Win ISEF">
+								    </div>
+								</div>
+								<div class="form-group">
+									<label for="newArticleWriter" class="col-sm-2 control-label">Writer(s)</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="newArticleWriter" placeholder="John Kasich, Paul Ryan">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="newArticleSection" class="col-sm-2 control-label">Section</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="newArticleSection" placeholder="Opinions">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="newArticleImageID" class="col-sm-2 control-label">Header Image</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="newArticleImageID" placeholder="optional">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="newArticleImageCredit" class="col-sm-2 control-label">Image Credit</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="newArticleImageCredit" placeholder="Bernie Sanders">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="newArticleUpload" class="col-sm-2 control-label">Article Upload</label>
+									<div class="col-sm-10">
+										<input id="newArticleUpload" type="file" class="form-control filestyle" data-icon="false">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="submit" id="newArticleBtn" class="btn btn-block btn-default">Submit</button>
+									</div>
+								</div>
+							</div>
 				  		</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Upload Image</h3>
+						</div>
+						<div class="panel-body">
+							Panel content
+						</div>
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
@@ -103,6 +173,7 @@
 
 		<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-filestyle.min.js"></script>
 
 		<script src="js/general.js"></script>
 		<script src="js/backend.js"></script>
