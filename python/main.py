@@ -14,16 +14,42 @@ client = MongoClient()
 db = client.record
 
 
+def getSections(query):
+    sections = [a for a in db.section.find(query)]
+    return sections
+
+
+def getStaffs(query):
+    staffs = [a for a in db.staff.find(query)]
+    return staffs
+
+
+def getArticles(query):
+    articles = [a for a in db.article.find(query)]
+    for article in articles:
+        article['authors'] = []
+        for authorID in article['authorIDs']:
+            try:
+                article['authors'].append(getStaffs({"_id": authorID})[0])
+            except:
+                pass
+        try:
+            article['section'] = getSections({"_id": article['sectionID']})[0]
+        except:
+            pass
+    return articles
+
+
 @app.route('/api/article', methods=['GET', 'POST'])
 def article():
     if request.method == 'GET':
         if request.args.get('articleID') is not None:
-            return dumps([a for a in db.article.find({"_id": ObjectId(request.args.get('articleID'))})])
+            return dumps(getArticles({"_id": ObjectId(request.args.get('articleID'))}))
         if request.args.get('sectionID') is not None:
-            return dumps([a for a in db.article.find({"sectionID": ObjectId(request.args.get('sectionID'))})])
+            return dumps(getArticles({"sectionID": ObjectId(request.args.get('sectionID'))}))
         if request.args.get('authorID') is not None:
-            return dumps([a for a in db.article.find({"authorIDs": {"$elemMatch": {"$in": [ObjectId(request.args.get('authorID'))]}}})])
-        return dumps([a for a in db.article.find({})])
+            return dumps(getArticles({"authorIDs": {"$elemMatch": {"$in": [ObjectId(request.args.get('authorID'))]}}}))
+        return dumps(getArticles({}))
     else:
         params = request.get_json()
         if all(a in params for a in ['title', 'content', 'sectionID', 'authorIDs', 'date']):
@@ -36,7 +62,8 @@ def article():
 def staff():
     if request.method == 'GET':
         if request.args.get('staffID') is not None:
-            return dumps([a for a in db.staff.find({"_id": ObjectId(request.args.get('staffID'))})])
+            return dumps(getStaffs({"_id": ObjectId(request.args.get('staffID'))}))
+        return dumps(getStaffs({}))
     else:
         params = request.get_json()
         if all(a in params for a in ['name', 'position']):
@@ -49,7 +76,8 @@ def staff():
 def section():
     if request.method == 'GET':
         if request.args.get('sectionID') is not None:
-            return dumps([a for a in db.section.find({"_id": ObjectId(request.args.get('sectionID'))})])
+            return dumps(getSections({"_id": ObjectId(request.args.get('sectionID'))}))
+        return dumps(getSections({}))
     else:
         params = request.get_json()
         if 'title' in params:
