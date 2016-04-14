@@ -16,12 +16,10 @@ db = client.record
 @app.route('/api/article', methods=['GET', 'POST'])
 def article():
     if request.method == 'GET':
-        if request.args.get('sectionID') is not None:
-            return dumps([a for a in db.article.find({"_id": request.args.get('sectionID')})])
         if request.args.get('articleID') is not None:
-            return dumps([a for a in db.article.find({"articleID": request.args.get('articleID')})])
-        if request.args.get('staffID') is not None:
-            return dumps([a for a in db.article.find({"sectionID": request.args.get('staffID')})])
+            return dumps([a for a in db.article.find({"_id": request.args.get('articleID')})])
+        if request.args.get('sectionID') is not None:
+            return dumps([a for a in db.article.find({"sectionID": request.args.get('sectionID')})])
     else:
         params = request.get_json()
         if all(a in params for a in ['title', 'content', 'sectionID', 'authorID', 'date']):
