@@ -17,7 +17,9 @@ function renderStaff(staff) {
 	$("#name").text(staff.name);
 	$("#position").text(staff.position);
 
-	renderArticles(getArticle.byStaff(staff.id));
+	getArticle.byStaff(staff.id, function(articles) {
+		renderArticles(articles);
+	});
 }
 
 $(document).ready(function() {

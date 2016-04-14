@@ -31,7 +31,7 @@ var getArticle = {
 	byQuery: function(query) {
 		return [this.byID(69),this.byID(69)];
 	},
-	byStaff: function(authorID) {
+	byStaff: function(authorID, callback) {
 		this.ajaxCall({authorID: authorID}, callback);
 	}
 };
