@@ -1,8 +1,9 @@
 from flask import Flask, request, redirect, url_for
 from flask.ext.cors import CORS
 from werkzeug import secure_filename
-from pymongo import MongoClient
 from bson.json_util import dumps
+from bson.objectid import ObjectId
+from pymongo import MongoClient
 import os
 
 app = Flask(__name__)
@@ -17,9 +18,9 @@ db = client.record
 def article():
     if request.method == 'GET':
         if request.args.get('articleID') is not None:
-            return dumps([a for a in db.article.find({"_id": request.args.get('articleID')})])
+            return dumps([a for a in db.article.find({"_id": ObjectId(request.args.get('articleID'))})])
         if request.args.get('sectionID') is not None:
-            return dumps([a for a in db.article.find({"sectionID": request.args.get('sectionID')})])
+            return dumps([a for a in db.article.find({"sectionID": int(request.args.get('sectionID'))})])
         if request.args.get('authorID') is not None:
             return dumps([a for a in db.article.find({"authorIDs": {"$elemMatch": {"$in": [int(request.args.get('authorID'))]}}})])
     else:
@@ -34,7 +35,7 @@ def article():
 def staff():
     if request.method == 'GET':
         if request.args.get('staffID') is not None:
-            return dumps([a for a in db.staff.find({"_id": request.args.get('staffID')})])
+            return dumps([a for a in db.staff.find({"_id": ObjectId(request.args.get('staffID'))})])
     else:
         params = request.get_json()
         if all(a in params for a in ['name', 'position']):
@@ -47,7 +48,7 @@ def staff():
 def section():
     if request.method == 'GET':
         if request.args.get('sectionID') is not None:
-            return dumps([a for a in db.section.find({"_id": request.args.get('sectionID')})])
+            return dumps([a for a in db.section.find({"_id": ObjectId(request.args.get('sectionID'))})])
     else:
         params = request.get_json()
         if 'title' in params:
