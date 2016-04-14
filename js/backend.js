@@ -38,13 +38,14 @@ var getArticle = {
 
 var getStaff = {
 	ajaxCall: function(params) {
-		return $.ajax({
+		return $.parseJSON($.ajax({
 			url: STAFF_URL,
-			data: params
-		}).responseJSON;
+			data: params,
+			async: false
+		}).responseText);
 	},
 	byID: function(id) {
-		return this.ajaxCall({staffID: id});
+		return this.ajaxCall({staffID: id})[0];
 	},
 	byName: function(id) {
 		return this.byID(69);
