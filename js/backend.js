@@ -71,6 +71,12 @@ var admin = {
 	},
 	addSection: function(section) {
 		return "good";
+	},
+	uploadImages: function(images) {
+		return "good";
+	},
+	uploadIssues: function(issues) {
+		return "good";
 	}
 };
 

@@ -184,7 +184,19 @@
 							<h3 class="panel-title">Upload Image</h3>
 						</div>
 						<div class="panel-body">
-							Panel content
+							<div class="formBox">
+								<div class="form-group">
+									<label for="imageUpload" class="col-sm-2 control-label">Image(s)</label>
+									<div class="col-sm-10">
+										<input id="imageUpload" type="file" multiple class="form-control filestyle" data-icon="false">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="submit" id="imageUploadBtn" class="btn btn-block btn-default">Submit</button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="panel panel-default">
@@ -192,7 +204,19 @@
 							<h3 class="panel-title">Upload Issue</h3>
 						</div>
 						<div class="panel-body">
-							Panel content
+							<div class="formBox">
+								<div class="form-group">
+									<label for="issueUpload" class="col-sm-2 control-label">Issue(s)</label>
+									<div class="col-sm-10">
+										<input id="issueUpload" type="file" multiple class="form-control filestyle" data-icon="false">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="submit" id="issueUploadBtn" class="btn btn-block btn-default">Submit</button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
