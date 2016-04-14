@@ -21,7 +21,7 @@ function stringifyArticle(article) {
 	}
 
 	string += "<div class='heading'><a href='article.php?";
-	string += article.id + "'>" + article.title;
+	string += article._id.$oid + "'>" + article.title;
 	string += "</a></div><div class='author'>by ";
 	string += getStaffLink(article.authors);
 	string += "</div><div class='content'>";

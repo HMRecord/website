@@ -23,7 +23,7 @@ function renderArticle(article) {
 
 	$("#title").text(article.title);
 
-	$("#author").html('<h4 id="author">by '+getStaffLink(article.author)+'</a>');
+	$("#author").html('<h4 id="author">by '+getStaffLink(article.authors)+'</a>');
 	$("#date").text(article.date);
 
 	var paragraphs = article.content.split("\n");
@@ -51,5 +51,5 @@ function renderArticle(article) {
 
 $(document).ready(function() {
 	var id = decodeURIComponent(window.location.href.split('?')[1]);
-	getArticle.byID(id,renderArticle);
+	getArticle.byID(id, renderArticle);
 });

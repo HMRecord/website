@@ -22,7 +22,7 @@ var getArticle = {
 	bySection: function(sectionID, callback) {
 		this.ajaxCall({sectionID: sectionID}, callback);
 	},
-	byID: function(articleID) {
+	byID: function(articleID, callback) {
 		this.ajaxCall({articleID: articleID}, function(articleArray) {
 			if(articleArray.length == 0) callback(null);
 			else callback(articleArray[0]);
