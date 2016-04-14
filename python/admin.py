@@ -1,7 +1,12 @@
-from flask import Flask, jsonify, make_response
+from flask import Flask, jsonify, request, abort, make_response
+from flask.ext.cors import CORS
 from flask.ext.httpauth import HTTPBasicAuth
+import database as db
 
 app = Flask(__name__, static_url_path="")
+app.config['UPLOAD_FOLDER'] = "../storage"
+CORS(app)
+
 auth = HTTPBasicAuth()
 
 
@@ -26,6 +31,21 @@ def bad_request(error):
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
+
+@app.route('/api/admin/staff', methods=['POST'])
+@auth.login_required
+def createStaff():
+    if not request.json or db.createStaff(request.json):
+        abort(400)
+    return "good"
+
+
+@app.route('/api/admin/staff', methods=['PUT'])
+@auth.login_required
+def updateStaff(staffID):
+    if not request.json or db.updateStaff(request.json):
+        abort(400)
+    return "good"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

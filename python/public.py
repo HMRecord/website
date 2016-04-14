@@ -3,53 +3,24 @@ from flask.ext.cors import CORS
 from werkzeug import secure_filename
 from bson.json_util import dumps
 from bson.objectid import ObjectId
-from pymongo import MongoClient
 import os
+import database as db
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = "../storage"
 CORS(app)
-
-client = MongoClient()
-db = client.record
-
-
-def getSections(query):
-    sections = [a for a in db.section.find(query)]
-    return sections
-
-
-def getStaffs(query):
-    staffs = [a for a in db.staff.find(query)]
-    return staffs
-
-
-def getArticles(query):
-    articles = [a for a in db.article.find(query)]
-    for article in articles:
-        article['authors'] = []
-        for authorID in article['authorIDs']:
-            try:
-                article['authors'].append(getStaffs({"_id": authorID})[0])
-            except:
-                pass
-        try:
-            article['section'] = getSections({"_id": article['sectionID']})[0]
-        except:
-            pass
-    return articles
 
 
 @app.route('/api/article', methods=['GET', 'POST'])
 def article():
     if request.method == 'GET':
         if request.args.get('articleID') is not None:
-            return dumps(getArticles({"_id": ObjectId(request.args.get('articleID'))}))
+            return dumps(db.getArticles({"_id": ObjectId(request.args.get('articleID'))}))
         if request.args.get('sectionID') is not None:
-            return dumps(getArticles({"sectionID": ObjectId(request.args.get('sectionID'))}))
+            return dumps(db.getArticles({"sectionID": ObjectId(request.args.get('sectionID'))}))
         if request.args.get('authorID') is not None:
-            return dumps(getArticles({"authorIDs": {"$elemMatch": {"$in": [ObjectId(request.args.get('authorID'))]}}}))
-        return dumps(getArticles({}))
+            return dumps(db.getArticles({"authorIDs": {"$elemMatch": {"$in": [ObjectId(request.args.get('authorID'))]}}}))
+        return dumps(db.getArticles({}))
     else:
         params = request.get_json()
         if all(a in params for a in ['title', 'content', 'sectionID', 'authorIDs', 'date']):
@@ -63,10 +34,10 @@ def staff():
     if request.method == 'GET':
         try:
             if request.args.get('staffID') is not None:
-                return dumps(getStaffs({"_id": ObjectId(request.args.get('staffID'))}))
+                return dumps(db.getStaffs({"_id": ObjectId(request.args.get('staffID'))}))
         except:
             pass
-        return dumps(getStaffs({}))
+        return dumps(db.getStaffs({}))
     else:
         params = request.get_json()
         if all(a in params for a in ['name', 'position']):
@@ -80,10 +51,10 @@ def section():
     if request.method == 'GET':
         try:
             if request.args.get('sectionID') is not None:
-                return dumps(getSections({"_id": ObjectId(request.args.get('sectionID'))}))
+                return dumps(db.getSections({"_id": ObjectId(request.args.get('sectionID'))}))
         except:
             pass
-        return dumps(getSections({}))
+        return dumps(db.getSections({}))
     else:
         params = request.get_json()
         if 'title' in params:
