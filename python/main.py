@@ -24,10 +24,10 @@ def article():
             return dumps([a for a in db.article.find({"authorIDs": {"$elemMatch": {"$in": [int(request.args.get('authorID'))]}}})])
     else:
         params = request.get_json()
-        if all(a in params for a in ['title', 'content', 'sectionID', 'authorID', 'date']):
+        if all(a in params for a in ['title', 'content', 'sectionID', 'authorIDs', 'date']):
             db.article.insert_one(params)
-            return "Sucess"
-    return "Error"
+            return "good"
+    return "bad"
 
 
 @app.route('/api/staff', methods=['GET', 'POST'])
@@ -39,8 +39,8 @@ def staff():
         params = request.get_json()
         if all(a in params for a in ['name', 'position']):
             db.staff.insert_one(params)
-            return "Sucess"
-    return "Error"
+            return "good"
+    return "bad"
 
 
 @app.route('/api/section', methods=['GET', 'POST'])
@@ -52,8 +52,8 @@ def section():
         params = request.get_json()
         if 'title' in params:
             db.section.insert_one(params)
-            return "Sucess"
-    return "Error"
+            return "good"
+    return "bad"
 
 
 @app.route('/api/files', methods=['POST'])
@@ -70,7 +70,7 @@ def file():
             return redirect(url_for('uploaded_file',
                                     filename=filename))
         else:
-            return "Not a valid file"
-    return "Error"
+            return "bad"
+    return "bad"
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
