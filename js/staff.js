@@ -23,5 +23,5 @@ function renderStaff(staff) {
 }
 
 $(document).ready(function() {
-	renderStaff(getStaff.byID(getQuery));
+	renderStaff(getStaff.byID(getQuery()));
 });
