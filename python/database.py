@@ -4,14 +4,9 @@ from bson.objectid import ObjectId
 client = MongoClient()
 db = client.record
 
-def getSections(query):
-    sections = [a for a in db.section.find(query)]
-    return sections
-
-
-def getStaffs(query):
-    staffs = [a for a in db.staff.find(query)]
-    return staffs
+REQUIRED_ARTICLE_FIELDS = ['title', 'content', 'sectionID']
+REQUIRED_STAFF_FIELDS = ['name', 'position']
+REQUIRED_SECTION_FIELDS = ['title']
 
 
 def getArticles(query):
@@ -30,8 +25,33 @@ def getArticles(query):
     return articles
 
 
+def createArticle(article):
+    if all(a in article for a in REQUIRED_ARTICLE_FIELDS) is False:
+        return False
+    else:
+        db.article.insert_one(article)
+        return True
+
+
+def updateArticle(article):
+    if all(a in article for a in ['_id'] + REQUIRED_ARTICLE_FIELDS) is False:
+        return False
+    else:
+        db.article.insert_one(article)
+        return True
+
+
+def deleteArticle(_id):
+    db.article.remove({'_id': ObjectId(_id)})
+
+
+def getStaffs(query):
+    staffs = [a for a in db.staff.find(query)]
+    return staffs
+
+
 def createStaff(newStaff):
-    if all(a in newStaff for a in ['name', 'position']) is False:
+    if all(a in newStaff for a in REQUIRED_STAFF_FIELDS) is False:
         return False
     else:
         db.staff.insert_one(newStaff)
@@ -39,8 +59,25 @@ def createStaff(newStaff):
 
 
 def updateStaff(newStaff):
-    if all(a in newStaff for a in ['_id', 'name', 'position']) is False:
+    if all(a in newStaff for a in ['_id'] + REQUIRED_STAFF_FIELDS) is False:
         return False
     else:
         db.staff.update({'_id': ObjectId(newStaff._id)}, newStaff)
         return True
+
+
+def getSections(query):
+    sections = [a for a in db.section.find(query)]
+    return sections
+
+
+def createSection(section):
+    if all(a in section for a in REQUIRED_SECTION_FIELDS) is False:
+        return False
+    else:
+        db.section.insert_one(section)
+        return True
+
+
+def deleteSection(_id):
+    db.section.remove({'_id': ObjectId(_id)})
