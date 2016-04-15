@@ -16,11 +16,11 @@ var getArticle = {
       }
     });
   },
-  all: function(callback) {
-    this.ajaxCall({}, callback)
+  all: function(page, callback) {
+    this.ajaxCall({page: page}, callback)
   },
-  bySection: function(sectionID, callback) {
-    this.ajaxCall({sectionID: sectionID}, callback);
+  bySection: function(page, sectionID, callback) {
+    this.ajaxCall({page: page, sectionID: sectionID}, callback);
   },
   byID: function(articleID, callback) {
     this.ajaxCall({articleID: articleID}, function(articleArray) {
@@ -83,3 +83,7 @@ var admin = {
     return "good";
   }
 };
+
+function getArchives(callback) {
+	callback(["Fall2015","Spring2016"]);
+}

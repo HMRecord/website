@@ -85,3 +85,10 @@
 #articles .content {
 	margin-bottom:20px;
 }
+
+/* LOAD MORE */
+
+#loadMore {
+	margin-top:50px;
+	text-align:center;
+}
