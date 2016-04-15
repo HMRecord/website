@@ -16,11 +16,11 @@ var getArticle = {
       }
     });
   },
-  all: function(pages, callback) {
-    this.ajaxCall({pages: pages}, callback)
+  all: function(page, callback) {
+    this.ajaxCall({page: page}, callback)
   },
-  bySection: function(pages, sectionID, callback) {
-    this.ajaxCall({pages: pages, sectionID: sectionID}, callback);
+  bySection: function(page, sectionID, callback) {
+    this.ajaxCall({page: page, sectionID: sectionID}, callback);
   },
   byID: function(articleID, callback) {
     this.ajaxCall({articleID: articleID}, function(articleArray) {
