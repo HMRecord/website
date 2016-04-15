@@ -1,8 +1,12 @@
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+from werkzeug import secure_filename
+import os
 
 client = MongoClient()
 db = client.record
+
+UPLOAD_FOLDER = "../storage"
 
 REQUIRED_ARTICLE_FIELDS = ['title', 'content', 'sectionID']
 REQUIRED_STAFF_FIELDS = ['name', 'position']
@@ -81,3 +85,16 @@ def createSection(section):
 
 def deleteSection(_id):
     db.section.remove({'_id': ObjectId(_id)})
+
+
+def saveFile(file):
+    def allowed_file(filename):
+        return '.' in filename and \
+           filename.rsplit('.', 1)[1] == 'jpg'
+
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(UPLOAD_FOLDER, filename))
+        return True
+    else:
+        return False
