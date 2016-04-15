@@ -1,3 +1,5 @@
+var pages = 1;
+
 function setDate() {
 	var monthNames = [
 		"January", "February", "March",
@@ -43,18 +45,29 @@ function populateArticles(articles) {
 	$("#rightColumn").html(right);
 }
 
-$(document).ready(function() {
-	var section = getQuery();
+function refreshArticles(section,pages) {
 	if (["opinions","news","sports"].indexOf(section) < 0) {
-		getArticle.all(function(articles) {
+		getArticle.all(pages,function(articles) {
 			populateArticles(articles);
 		});
 	}
 	else {
-		getArticle.bySection(section, function(articles) {
+		getArticle.bySection(pages,section, function(articles) {
 			populateArticles(articles);
 		});
 	}
+}
+
+$(document).ready(function() {
+	var section = getQuery();
+
+	refreshArticles(section,pages);
+
+	$("#loadMoreBtn").click(function(e) {
+		e.preventDefault();
+		page += 1;
+		refreshArticles(section,page);
+	});
 
 	setDate();
 });
