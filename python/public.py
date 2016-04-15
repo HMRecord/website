@@ -1,15 +1,12 @@
-from flask import Flask, request
-from flask.ext.cors import CORS
+from flask import Blueprint, request
 from bson.json_util import dumps
 from bson.objectid import ObjectId
 import database as db
 
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = "../storage"
-CORS(app)
+publicAPI = Blueprint('publicAPI', __name__)
 
 
-@app.route('/api/article', methods=['GET'])
+@publicAPI.route('/api/article', methods=['GET'])
 def article():
     if request.args.get('articleID') is not None:
         return dumps(db.getArticles({"_id": ObjectId(request.args.get('articleID'))}))
@@ -20,7 +17,7 @@ def article():
     return dumps(db.getArticles({}))
 
 
-@app.route('/api/staff', methods=['GET'])
+@publicAPI.route('/api/staff', methods=['GET'])
 def staff():
     try:
         if request.args.get('staffID') is not None:
@@ -30,7 +27,7 @@ def staff():
     return dumps(db.getStaffs({}))
 
 
-@app.route('/api/section', methods=['GET'])
+@publicAPI.route('/api/section', methods=['GET'])
 def section():
     try:
         if request.args.get('sectionID') is not None:
@@ -38,6 +35,3 @@ def section():
     except:
         pass
     return dumps(db.getSections({}))
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)

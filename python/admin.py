@@ -1,11 +1,8 @@
-from flask import Flask, jsonify, request, abort, make_response
-from flask.ext.cors import CORS
+from flask import Blueprint, jsonify, request, abort, make_response
 from flask.ext.httpauth import HTTPBasicAuth
 import database as db
 
-app = Flask(__name__, static_url_path="")
-app.config['UPLOAD_FOLDER'] = "../storage"
-CORS(app)
+adminAPI = Blueprint('adminAPI', __name__)
 
 auth = HTTPBasicAuth()
 
@@ -22,17 +19,17 @@ def unauthorized():
     return make_response(jsonify({'error': 'Unauthorized access'}), 403)
 
 
-@app.errorhandler(400)
+@adminAPI.errorhandler(400)
 def bad_request(error):
     return make_response(jsonify({'error': 'Bad request'}), 400)
 
 
-@app.errorhandler(404)
+@adminAPI.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 
-@app.route('/api/admin/article', methods=['POST'])
+@adminAPI.route('/api/admin/article', methods=['POST'])
 @auth.login_required
 def createArticle():
     if not request.json or not db.createArticle(request.json):
@@ -40,14 +37,14 @@ def createArticle():
     return "good"
 
 
-@app.route('/api/admin/article/<articleID>', methods=['DELETE'])
+@adminAPI.route('/api/admin/article/<articleID>', methods=['DELETE'])
 @auth.login_required
 def updateArticle(articleID):
     db.deleteArticle(articleID)
     return "good"
 
 
-@app.route('/api/admin/staff', methods=['POST'])
+@adminAPI.route('/api/admin/api/admin/staff', methods=['POST'])
 @auth.login_required
 def createStaff():
     if not request.json or not db.createStaff(request.json):
@@ -55,7 +52,7 @@ def createStaff():
     return "good"
 
 
-@app.route('/api/admin/staff', methods=['PUT'])
+@adminAPI.route('/api/admin/staff', methods=['PUT'])
 @auth.login_required
 def updateStaff():
     if not request.json or not db.updateStaff(request.json):
@@ -63,7 +60,7 @@ def updateStaff():
     return "good"
 
 
-@app.route('/api/admin/section', methods=['POST'])
+@adminAPI.route('/api/admin/section', methods=['POST'])
 @auth.login_required
 def createSection():
     if not request.json or not db.createSection(request.json):
@@ -71,14 +68,14 @@ def createSection():
     return "good"
 
 
-@app.route('/api/admin/section/<sectionID>', methods=['DELETE'])
+@adminAPI.route('/api/admin/section/<sectionID>', methods=['DELETE'])
 @auth.login_required
 def updateSection(sectionID):
     db.deleteSection(sectionID)
     return "good"
 
 
-@app.route('/api/admin/files', methods=['POST'])
+@adminAPI.route('/api/admin/file', methods=['POST'])
 @auth.login_required
 def file():
     filename = db.saveFile(request.files['file'])
@@ -88,4 +85,4 @@ def file():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0/api/public', debug=True)
