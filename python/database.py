@@ -13,20 +13,36 @@ REQUIRED_STAFF_FIELDS = ['name', 'position']
 REQUIRED_SECTION_FIELDS = ['title']
 
 
+def updateDB(newDatabase):
+    global db
+    db = newDatabase
+
+
 def getArticles(query):
     articles = [a for a in db.article.find(query)]
+    validArticles = []
     for article in articles:
         article['authors'] = []
+
+        # Get authors
         for authorID in article['authorIDs']:
-            try:
-                article['authors'].append(getStaffs({"_id": authorID})[0])
-            except:
-                pass
-        try:
-            article['section'] = getSections({"_id": article['sectionID']})[0]
-        except:
-            pass
-    return articles
+            authors = getStaffs({"_id": authorID})
+            if len(authors) == 0:
+                break
+            else:
+                article['authors'].append(authors[0])
+        if len(article['authors']) < len(article['authorIDs']):
+            continue
+
+        # Get section
+        sections = getStaffs({"_id": article['sectionID']})
+        if len(sections) == 0:
+            continue
+        else:
+            article['section'] = sections[0]
+
+        validArticles.append(article)
+    return validArticles
 
 
 def createArticle(article):

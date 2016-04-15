@@ -82,7 +82,3 @@ def file():
     if filename is not None:
         return filename
     return "bad"
-
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0/api/public', debug=True)
