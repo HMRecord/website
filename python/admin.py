@@ -47,5 +47,15 @@ def updateStaff(staffID):
         abort(400)
     return "good"
 
+
+@app.route('/api/admin/files', methods=['POST'])
+@auth.login_required
+def file():
+    filename = db.saveFile(request.files['file'])
+    if filename is not None:
+        return filename
+    return "bad"
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

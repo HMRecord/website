@@ -95,6 +95,6 @@ def saveFile(file):
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         file.save(os.path.join(UPLOAD_FOLDER, filename))
-        return True
+        return filename
     else:
-        return False
+        return None
