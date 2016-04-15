@@ -85,5 +85,5 @@ var admin = {
 };
 
 function getArchives(callback) {
-	callback(["Fall2015","Spring2016"])
+	callback(["Fall2015","Spring2016"]);
 }
