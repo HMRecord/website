@@ -32,11 +32,13 @@ def getArticles(query):
             else:
                 article['authors'].append(authors[0])
         if len(article['authors']) < len(article['authorIDs']):
+            print("INVALID AUTHOR")
             continue
 
         # Get section
-        sections = getStaffs({"_id": article['sectionID']})
+        sections = getSections({"_id": article['sectionID']})
         if len(sections) == 0:
+            print("INVALID SECTION")
             continue
         else:
             article['section'] = sections[0]
