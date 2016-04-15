@@ -89,6 +89,11 @@
 /* LOAD MORE */
 
 #loadMore {
+	font-family:Lato;
 	margin-top:50px;
 	text-align:center;
+}
+
+#loadMore a {
+	text-decoration:none;
 }
