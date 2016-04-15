@@ -8,7 +8,7 @@ db = client.record
 
 UPLOAD_FOLDER = "../storage"
 
-REQUIRED_ARTICLE_FIELDS = ['title', 'content', 'sectionID']
+REQUIRED_ARTICLE_FIELDS = ['title', 'content', 'sectionID', 'authorIDs', 'date']
 REQUIRED_STAFF_FIELDS = ['name', 'position']
 REQUIRED_SECTION_FIELDS = ['title']
 

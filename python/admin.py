@@ -32,19 +32,49 @@ def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 
+@app.route('/api/admin/article', methods=['POST'])
+@auth.login_required
+def createArticle():
+    if not request.json or not db.createArticle(request.json):
+        abort(400)
+    return "good"
+
+
+@app.route('/api/admin/article/<articleID>', methods=['DELETE'])
+@auth.login_required
+def updateArticle(articleID):
+    db.deleteArticle(articleID)
+    return "good"
+
+
 @app.route('/api/admin/staff', methods=['POST'])
 @auth.login_required
 def createStaff():
-    if not request.json or db.createStaff(request.json):
+    if not request.json or not db.createStaff(request.json):
         abort(400)
     return "good"
 
 
 @app.route('/api/admin/staff', methods=['PUT'])
 @auth.login_required
-def updateStaff(staffID):
-    if not request.json or db.updateStaff(request.json):
+def updateStaff():
+    if not request.json or not db.updateStaff(request.json):
         abort(400)
+    return "good"
+
+
+@app.route('/api/admin/section', methods=['POST'])
+@auth.login_required
+def createSection():
+    if not request.json or not db.createSection(request.json):
+        abort(400)
+    return "good"
+
+
+@app.route('/api/admin/section/<sectionID>', methods=['DELETE'])
+@auth.login_required
+def updateSection(sectionID):
+    db.deleteSection(sectionID)
     return "good"
 
 
