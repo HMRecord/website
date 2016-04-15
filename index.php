@@ -32,7 +32,7 @@
 				<div class="col-sm-6" id="middleColumn"></div>
 				<div class="col-sm-3" id="rightColumn"></div>
 			</div>
-			<div id="loadMore"><a href="#" id="loadMoreBtn">Load More</a></div>
+			<div id="loadMore"><a href="#" id="loadMoreBtn">&#126; Load More &#126;</a></div>
 		</div>
 
 		<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
