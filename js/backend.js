@@ -83,3 +83,7 @@ var admin = {
     return "good";
   }
 };
+
+function getArchives(callback) {
+	callback(["Fall2015","Spring2016"])
+}

@@ -21,6 +21,9 @@
 					<li><a href="index.php?sports">Lions Den</a></li>
 				</ul>
 			</li>
+			<li><a href="archives.php">
+				Archives
+			</a></li>
 
 		</ul>
 		<div class="navbar-form navbar-right" role="search" id="navSearch">
