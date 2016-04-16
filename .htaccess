@@ -1,2 +1,4 @@
-RewriteEngine on
-RewriteRule ^.+$ /construction.html [L]
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !=/construction.html
+RewriteRule .* /construction.html
