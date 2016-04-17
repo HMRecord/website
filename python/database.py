@@ -48,7 +48,15 @@ def getArticles(query):
 
 
 def createArticle(article):
+    print(article)
     if all(a in article for a in REQUIRED_ARTICLE_FIELDS) is False:
+        print("Not all fields")
+        return False
+    elif db.section.find_one({"_id": article['sectionID']}) is None:
+        print("Invalid section")
+        return False
+    elif any([db.staff.find_one({"_id": authorID}) is None for authorID in article['authorIDs']]):
+        print("Invalid author")
         return False
     else:
         db.article.insert_one(article)
@@ -73,6 +81,7 @@ def getStaffs(query):
 
 
 def createStaff(newStaff):
+    print(newStaff)
     if all(a in newStaff for a in REQUIRED_STAFF_FIELDS) is False:
         return False
     else:
