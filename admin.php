@@ -219,6 +219,45 @@
 							</div>
 						</div>
 					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title"><button class="btn btn-primary btn-block" data-toggle="modal" data-target="#helpModal">Help</button></h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="helpModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Record Admin Help</h4>
+					</div>
+					<div class="modal-body">
+						<h3>Uploading Images</h3>
+						<p>Images are managed through an ID system.  Whenever an image is uploaded to the website via the "Upload Image" panel, a respective ID is returned.  IDs can be used when uploading the header images for an article, or when adding inline images to articles.</p>
+
+						<h3>Uploading Articles</h3>
+						<p>When uploading an article, the mandatory fields are  title, writer(s), section, and article upload.  Multiple writers can be credited via comma seperation, ex "John Doe, Jess Dae."  A header image is optional, but can be added by putting the image ID under "Header Image" and citing the same way writers are cited.</p>
+
+						<p>Articles are uploaded as plaintext .txt files.  Images can be included inline using the following syntax:</p>
+
+						<pre>&lt;pic id='1234' credit='Bernie Sanders' desc='The notorious truellmeister in its natural habitat.' /&gt;</pre>
+
+						<p>The field <code>id</code> is simply the ID given when the image was uploaded. Descriptions are optional, and staff in credit must be added to the system first via the "Add Staff Member" panel.</p>
+
+						<h3>Issue Uploading</h3>
+						<p>Issues can be uploaded to the archive page via the "Upload Issue" panel.  Be sure to name archives nicely, as the raw filename will be displayed to visitors.</p>
+
+						<h3>About This Website</h3>
+						<p>This incarnation of the Record website was created by Joshua Gruenstein and Michael Truell.  The technology stack is Apache, Python Flask, PHP, and Bootstrap on the front-end.  The code can be found on <a href="https://github.com/HMRecord/website">Github</a>.</p>
+						<p>The website is hosted by <a href="https://www.digitalocean.com/">DigitalOcean</a>, using the email address hmrecordtech@gmail.com with the same password used to gain access to this page.  For domain name related concerns, you can contact Horace Mann IT.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
 				</div>
 			</div>
 		</div>
