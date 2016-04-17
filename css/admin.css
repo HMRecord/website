@@ -15,3 +15,7 @@ body {
 		padding:15px;
 	}
 }
+
+.modal-body {
+	margin-top: -1em;
+}
