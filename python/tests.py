@@ -13,7 +13,7 @@ STAFF = {"name": "Michael Truell", "position": "CTO"}
 SECTION = {"title": "Sports"}
 
 CORRECT_USERNAME = "admin"
-CORRECT_PASSWORD = "sdfkasldfj"
+CORRECT_PASSWORD = "d"
 
 
 def getValidArticle(db):
@@ -111,9 +111,13 @@ class APITester(unittest.TestCase):
                         return False
             return True
 
-        self.db.staff.insert_one(copy.deepcopy(STAFF))
+        modifiableStaff = copy.deepcopy(STAFF)
+        self.db.staff.insert_one(modifiableStaff)
 
         assert isSameStaff(STAFF, loads(self.queryGET('/api/staff'))[0])
+        print("id")
+        print(self.queryGET('/api/staff', data={"staffID": str(modifiableStaff['_id'])}))
+        assert isSameStaff(STAFF, loads(self.queryGET('/api/staff', data={"staffID": str(modifiableStaff['_id'])}))[0])
         assert isSameStaff(STAFF, loads(self.queryGET('/api/staff', data={"name": STAFF['name']}))[0])
 
     def testPOSTStaff(self):

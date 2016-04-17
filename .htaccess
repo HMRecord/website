@@ -1,8 +1,8 @@
-Options +FollowSymLinks
-RewriteEngine On
-RewriteCond %{REQUEST_URI} !=/construction.html
+#Options +FollowSymLinks
+#RewriteEngine On
+#RewriteCond %{REQUEST_URI} !=/construction.html
 
-RewriteCond %{REQUEST_URI} !.*\.ttf$ [NC]
-RewriteCond %{REQUEST_URI} !.*\.css$ [NC]
+#RewriteCond %{REQUEST_URI} !.*\.ttf$ [NC]
+#RewriteCond %{REQUEST_URI} !.*\.css$ [NC]
 
-RewriteRule .* /construction.html
+#RewriteRule .* /construction.html

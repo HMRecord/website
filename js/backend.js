@@ -1,20 +1,35 @@
-var API_URL = "http://"+window.location.hostname+":5000/api/";
+var API_URL = "http://localhost:5000/api/";
+var ADMIN_URL = "http://localhost:5000/api/admin/";
 var ARTICLE_URL = API_URL+"article";
 var SECTION_URL = API_URL+"section";
 var STAFF_URL = API_URL+"staff";
 
 var getArticle = {
   ajaxCall: function(params, callback) {
+    console.log(ARTICLE_URL)
+    console.log(params)
     $.ajax({
       url: ARTICLE_URL,
-      data: params,
+      cache: false,
+      data: {page: "1"},
+      async: true,
       success: function(result) {
-          callback($.parseJSON(result));
+        callback($.parseJSON(result));
       },
-      error: function() {
+      error: function(xhr, status, error) {
+        console.log(xhr)
+        console.log(status)
+        console.log(error)
         callback([]);
       }
+    }).done(function(){
+      console.log("done")
+    }).fail(function(){
+      console.log("fail")
+    }).always(function(){
+      console.log("all")
     });
+    console.log("Done with request")
   },
   all: function(page, callback) {
     this.ajaxCall({page: page}, callback)
@@ -54,27 +69,47 @@ var getStaff = {
 
 var admin = {
   password: "",
+  ajaxCall: function(endpoint, method, params) {
+    return $.ajax({
+      url: ADMIN_URL+endpoint,
+      data: JSON.stringify(params),
+      contentType: "application/json",
+      headers: {
+        "Authorization": "Basic " + btoa("admin:" + this.password)
+      },
+      method: method,
+      async: false
+    });
+  },
   login: function(pass) {
-    password = pass;
+    this.password = pass;
     return "good";
   },
   newStaff: function(name,position) {
-    return "good";
+    console.log("new staff")
+    return this.ajaxCall("staff", 'POST', {name: name, position: position});
   },
   editStaff: function(name,position) {
-    return "good";
+    return this.ajaxCall("staff", 'PUT', {name: name, position: position});
   },
   uploadArticle: function(title,writer,section,imageid,imagecredit,file) {
-    return "good";
+    return this.ajaxCall("article", 'POST', {
+      title: title,
+      writer: writer,
+      section: section,
+      imageid: imageid,
+      imagecredit: imagecredit,
+      file: file
+    });
   },
   deleteArticle: function(articleID) {
-    return "good";
+    return this.ajaxCall("article/"+articleID, 'DELETE', {});
   },
   deleteSection: function(section) {
-    return "good";
+    return this.ajaxCall("section/"+articleID, 'DELETE', {});
   },
   addSection: function(section) {
-    return "good";
+    return this.ajaxCall("article/"+articleID, 'POST', {title: section});
   },
   uploadImages: function(images) {
     return "good";

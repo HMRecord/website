@@ -10,7 +10,7 @@ auth = HTTPBasicAuth()
 
 
 def checkAuth(username, password):
-    return username == 'admin' and password == 'sdfkasldfj'
+    return username == 'admin' and password == 'd'
 
 
 def authenticate():
@@ -54,6 +54,8 @@ def updateArticle(articleID):
 @adminAPI.route('/api/admin/staff', methods=['POST'])
 @requiresAuth
 def createStaff():
+    print("first")
+    print(request.json)
     if not request.json or not db.createStaff(request.json):
         abort(400)
     return "good"

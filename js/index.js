@@ -53,16 +53,21 @@ function populateArticles(articles,append) {
 }
 
 function refreshArticles(append) {
-	if (["opinions","news","sports"].indexOf(section) < 0) {
+	if (section === null || ["opinions","news","sports"].indexOf(section) < 0) {
+		console.log("Get all")
 		getArticle.all(page,function(articles) {
+			console.log("reutrned")
+			console.log(articles)
 			populateArticles(articles,append);
 		});
 	}
 	else {
+		console.log("get section")
 		getArticle.bySection(page,section, function(articles) {
 			populateArticles(articles,append);
 		});
 	}
+	console.log("Done refreshing articles")
 }
 
 $(document).ready(function() {
@@ -70,11 +75,11 @@ $(document).ready(function() {
 
 	refreshArticles(false);
 
-	$("#loadMoreBtn").click(function(e) {
+	/*$("#loadMoreBtn").click(function(e) {
 		e.preventDefault();
 		page += 1;
 		refreshArticles(true);
-	});
+	});*/
 
-	setDate();
+	//setDate();
 });
