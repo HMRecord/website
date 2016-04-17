@@ -14,16 +14,17 @@ def article():
         return dumps(db.getArticles({"sectionID": ObjectId(request.args.get('sectionID'))}))
     if request.args.get('authorID') is not None:
         return dumps(db.getArticles({"authorIDs": {"$elemMatch": {"$in": [ObjectId(request.args.get('authorID'))]}}}))
+    if request.args.get('title') is not None:
+        return dumps(db.getArticles({"title": request.args.get('title')}))
     return dumps(db.getArticles({}))
 
 
 @publicAPI.route('/api/staff', methods=['GET'])
 def staff():
-    try:
-        if request.args.get('staffID') is not None:
-            return dumps(db.getStaffs({"_id": ObjectId(request.args.get('staffID'))}))
-    except:
-        pass
+    if request.args.get('staffID') is not None:
+        return dumps(db.getStaffs({"_id": ObjectId(request.args.get('staffID'))}))
+    elif request.args.get('name') is not None:
+        return dumps(db.getStaffs({"name": ObjectId(request.args.get('name'))}))
     return dumps(db.getStaffs({}))
 
 

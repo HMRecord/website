@@ -52,15 +52,14 @@ class APITester(unittest.TestCase):
         os.close(self.db_fd)
         os.unlink(main.app.config['DATABASE'])
 
-    def queryGET(self, endpointName):
-        request = self.app.get(endpointName)
+    def queryGET(self, endpointName, data={}):
+        request = self.app.get(endpointName, data=data)
         return request.data.decode("utf-8")
 
-    def queryPOST(self, endpointName, jsonData):
-        data = dumps(jsonData)
+    def queryPOST(self, endpointName, data={}):
         header = getAuthHeader(CORRECT_USERNAME, CORRECT_PASSWORD)
         contentType = 'application/json'
-        request = self.app.post(endpointName, data=data, content_type=contentType, headers=header)
+        request = self.app.post(endpointName, data=dumps(data), content_type=contentType, headers=header)
         return request.data.decode("utf-8")
 
     def testEmptyDB(self):
@@ -69,46 +68,56 @@ class APITester(unittest.TestCase):
             assert '[]' in str(self.app.get('/api/'+endpoint).data)
 
     def testGETInvalidArticle(self):
-        '''
-        Test that if we insert an article with invalid section and authorIDs,
-        our article endpoint does not return that article
-        '''
-
         self.db.article.insert_one(copy.deepcopy(INVALID_ARTICLE))
         assert '[]' == self.queryGET('/api/article')
 
     def testGETValidArticle(self):
+        def isSameAricle(article1, article2):
+            for field in list(article1.keys())+list(article2.keys()):
+                if field not in ['_id', 'section', 'authors']:
+                    if article1[field] != article2[field]:
+                        return False
+            return True
+
         validArticle = getValidArticle(self.db)
         self.db.article.insert_one(validArticle)
 
-        returnedString = self.queryGET('/api/article')
-        returnedArticle = loads(returnedString)[0]
+        returnedArticle = loads(self.queryGET('/api/article'))[0]
+        assert isSameAricle(validArticle, returnedArticle)
 
-        for field in list(returnedArticle.keys())+list(validArticle.keys()):
-            if field not in ['_id', 'section', 'authors']:
-                assert validArticle[field] == returnedArticle[field]
+        returnedArticle = loads(self.queryGET('/api/article', data={"sectionID": validArticle['sectionID']}))[0]
+        assert isSameAricle(validArticle, returnedArticle)
+
+        returnedArticle = loads(self.queryGET('/api/article', data={"title": validArticle['title']}))[0]
+        assert isSameAricle(validArticle, returnedArticle)
 
     def testPOSTArticle(self):
         # Should fail with bad object ids
         try:
-            self.queryPOST("/api/admin/article", INVALID_ARTICLE)
+            self.queryPOST("/api/admin/article", data=INVALID_ARTICLE)
             assert False
         except:
             pass
 
         # Should store data and return good when given valid article
-        assert self.queryPOST("/api/admin/article", getValidArticle(self.db)) == 'good'
+        assert self.queryPOST("/api/admin/article", data=getValidArticle(self.db)) == 'good'
         assert self.db.article.find_one(getValidArticle(self.db)) is not None
 
     def testGETStaff(self):
+        def isSameStaff(staff1, staff2):
+            for field in list(staff1.keys())+list(staff2.keys()):
+                if field != '_id':
+                    if staff1[field] != staff2[field]:
+                        return False
+            return True
+
         self.db.staff.insert_one(copy.deepcopy(STAFF))
-        returnedStaff = loads(self.queryGET('/api/staff'))[0]
-        for field in list(returnedStaff.keys())+list(STAFF.keys()):
-            if field != '_id':
-                assert STAFF[field] == returnedStaff[field]
+
+        assert isSameStaff(STAFF, loads(self.queryGET('/api/staff'))[0])
+        assert isSameStaff(STAFF, loads(self.queryGET('/api/staff', data={"name": STAFF['name']}))[0])
 
     def testPOSTStaff(self):
-        assert self.queryPOST("/api/admin/staff", STAFF) == 'good'
+        assert self.queryPOST("/api/admin/staff", data=STAFF) == 'good'
         assert self.db.staff.find_one(STAFF) is not None
 
     def testGETSection(self):
@@ -119,7 +128,7 @@ class APITester(unittest.TestCase):
                 assert SECTION[field] == returnedSection[field]
 
     def testPOSTSection(self):
-        assert self.queryPOST("/api/admin/section", SECTION) == 'good'
+        assert self.queryPOST("/api/admin/section", data=SECTION) == 'good'
         assert self.db.section.find_one(SECTION) is not None
 
     def testAdminAccess(self):
