@@ -8,8 +8,16 @@ body {
 .navbar {
 	background: none;
 	border: none;
+	box-shadow:none;
 
 	font-family: 'Lato', sans-serif;
+}
+
+.navbar-default div.navbar-collapse {
+    border-top:none !important;
+    box-shadow:none;
+    -webkit-text-shadow: none;
+    text-shadow: none;
 }
 
 #navDrop {
