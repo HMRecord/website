@@ -1,11 +1,6 @@
 # Downloads
-if [ "$(uname)" == "Darwin" ]; then
-    brew install python3 mongodb
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    sudo apt-get install python3 python3-pip mongodb
-fi
-
-sudo pip3 install flask bson pymongo flask-cors flask-httpauth
+brew install python3 mongodb || sudo apt-get install python3 python3-pip mongodb
+sudo pip3 install flask pymongo flask-cors flask-httpauth || sudo pip install flask pymongo flask-cors flask-httpauth
 
 # File structure
 mkdir storage
