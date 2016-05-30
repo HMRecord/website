@@ -12,8 +12,8 @@ before_install:
 
 install:
   - cd ~/build/HMRecord/website
-  - ./install.sh
+  - sudo ./install.sh
 
 script:
   - cd ~/build/HMRecord/website
-  - ./runTests.sh
+  - sudo ./runTests.sh
