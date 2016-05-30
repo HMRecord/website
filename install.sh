@@ -5,7 +5,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     sudo apt-get install python3 python3-pip mongodb
 fi
 
-sudo pip3 install flask bson pymongo flask-cors flask-httpauth
+sudo pip3 install flask bson pymongo flask-cors flask-httpauth || sudo pip install flask bson pymongo flask-cors flask-httpauth
 
 # File structure
 mkdir storage
