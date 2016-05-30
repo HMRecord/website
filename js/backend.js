@@ -62,8 +62,21 @@ var getStaff = {
   byID: function(id) {
     return this.ajaxCall({staffID: id})[0];
   },
-  byName: function(id) {
-    return this.byID(69);
+  byName: function(name) {
+    return this.ajaxCall({name: name})[0];
+  }
+};
+
+var getSection = {
+  ajaxCall: function(params) {
+    return $.parseJSON($.ajax({
+      url: SECTION_URL,
+      data: params,
+      async: false
+    }).responseText);
+  },
+  byTitle: function(title) {
+    return this.ajaxCall({title: title})[0];
   }
 };
 
@@ -83,14 +96,14 @@ var admin = {
   },
   login: function(pass) {
     this.password = pass;
-    return "good";
+    var responseText = this.ajaxCall("staff", 'POST', {}).responseText;
+    return responseText === "Bad request" ? "good" : responseText;
   },
-  newStaff: function(name,position) {
-    console.log("new staff")
-    return this.ajaxCall("staff", 'POST', {name: name, position: position});
+  newStaff: function(staff) {
+    return this.ajaxCall("staff", 'POST', staff).responseText;
   },
-  editStaff: function(name,position) {
-    return this.ajaxCall("staff", 'PUT', {name: name, position: position});
+  editStaff: function(staff) {
+    return this.ajaxCall("staff", 'PUT', staff).responseText;
   },
   uploadArticle: function(title,writer,section,imageid,imagecredit,file) {
     return this.ajaxCall("article", 'POST', {
@@ -100,22 +113,22 @@ var admin = {
       imageid: imageid,
       imagecredit: imagecredit,
       file: file
-    });
+    }).responseText;
   },
   deleteArticle: function(articleID) {
-    return this.ajaxCall("article/"+articleID, 'DELETE', {});
+    return this.ajaxCall("article/"+articleID, 'DELETE', {}).responseText;
   },
-  deleteSection: function(section) {
-    return this.ajaxCall("section/"+articleID, 'DELETE', {});
+  deleteSection: function(sectionID) {
+    return this.ajaxCall("section/"+sectionID, 'DELETE', {}).responseText;
   },
   addSection: function(section) {
-    return this.ajaxCall("article/"+articleID, 'POST', {title: section});
+    return this.ajaxCall("section", 'POST', section).responseText;
   },
-  uploadImages: function(images) {
-    return "good";
+  uploadImages: function(images, callback) {
+    calback(true, 3);
   },
   uploadIssues: function(issues) {
-    return "good";
+    return true;
   }
 };
 

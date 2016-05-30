@@ -94,3 +94,4 @@ ENV/
 ## Custom ##
 ############
 storage/
+adminConfig.js

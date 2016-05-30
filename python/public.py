@@ -24,15 +24,14 @@ def staff():
     if request.args.get('staffID') is not None:
         return dumps(db.getStaffs({"_id": ObjectId(request.args.get('staffID'))}))
     elif request.args.get('name') is not None:
-        return dumps(db.getStaffs({"name": ObjectId(request.args.get('name'))}))
+        return dumps(db.getStaffs({"name": request.args.get('name')}))
     return dumps(db.getStaffs({}))
 
 
 @publicAPI.route('/api/section', methods=['GET'])
 def section():
-    try:
-        if request.args.get('sectionID') is not None:
-            return dumps(db.getSections({"_id": ObjectId(request.args.get('sectionID'))}))
-    except:
-        pass
-    return dumps(db.getSections({}))
+    if request.args.get('sectionID') is not None:
+        return dumps(db.getSections({"_id": ObjectId(request.args.get('sectionID'))}))
+    if request.args.get('title') is not None:
+        return dumps(db.getSections({'title': request.args.get('title')}))
+    return dumps(db.getSections())

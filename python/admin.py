@@ -54,7 +54,7 @@ def updateArticle(articleID):
 @adminAPI.route('/api/admin/staff', methods=['POST'])
 @requiresAuth
 def createStaff():
-    if not request.json or not db.createStaff(request.json):
+    if not request.json or not db.createStaff(loads(dumps(request.json))):
         abort(400)
     return "good"
 
@@ -62,7 +62,8 @@ def createStaff():
 @adminAPI.route('/api/admin/staff', methods=['PUT'])
 @requiresAuth
 def updateStaff():
-    if not request.json or not db.updateStaff(request.json):
+    print(loads(dumps(request.json)))
+    if not request.json or not db.updateStaff(loads(dumps(request.json))):
         abort(400)
     return "good"
 
@@ -70,7 +71,8 @@ def updateStaff():
 @adminAPI.route('/api/admin/section', methods=['POST'])
 @requiresAuth
 def createSection():
-    if not request.json or not db.createSection(request.json):
+    print(request.json)
+    if not request.json or not db.createSection(loads(dumps(request.json))):
         abort(400)
     return "good"
 

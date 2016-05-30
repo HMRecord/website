@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+from bson.json_util import loads
 from werkzeug import secure_filename
 import os
 
@@ -90,10 +91,12 @@ def createStaff(newStaff):
 
 
 def updateStaff(newStaff):
+    print(newStaff)
     if all(a in newStaff for a in ['_id'] + REQUIRED_STAFF_FIELDS) is False:
         return False
     else:
-        db.staff.update({'_id': ObjectId(newStaff._id)}, newStaff)
+        print()
+        db.staff.update({'_id': newStaff['_id']}, newStaff)
         return True
 
 
