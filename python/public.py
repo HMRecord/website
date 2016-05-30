@@ -13,8 +13,8 @@ def article():
     if request.args.get('sectionID') is not None:
         print("section")
         return dumps(db.getArticles({"sectionID": ObjectId(request.args.get('sectionID'))}))
-    if request.args.get('authorID') is not None:
-        return dumps(db.getArticles({"authorIDs": {"$elemMatch": {"$in": [ObjectId(request.args.get('authorID'))]}}}))
+    if request.args.get('staffID') is not None:
+        return dumps(db.getArticles({"staffIDs": {"$elemMatch": {"$in": [ObjectId(request.args.get('staffID'))]}}}))
     if request.args.get('title') is not None:
         return dumps(db.getArticles({"title": request.args.get('title')}))
     return dumps(db.getArticles({}))

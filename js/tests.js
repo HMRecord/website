@@ -46,6 +46,8 @@ QUnit.test("Section", function( assert ) {
   var returnedSection = getSection.byTitle(section.title);
   assert.ok(compareWithSharedKeys(section, returnedSection));
   assert.ok(admin.deleteSection(returnedSection._id.$oid) === 'good');
+  console.log(getSection.byTitle(section.title))
+  assert.ok(getSection.byTitle(section.title) == undefined);
 });
 
 QUnit.test("Article", function( assert ) {
@@ -81,6 +83,7 @@ QUnit.test("Article", function( assert ) {
         assert.ok(compareWithSharedKeys(newArticles[0], article));
 
         assert.ok(admin.deleteArticle(article._id.$oid) === 'good');
+        assert.ok(admin.deleteSection(section._id.$oid) === 'good');
       });
     });
   });
