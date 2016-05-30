@@ -20,7 +20,7 @@ script:
   - cd python
 
   - sudo mongod &
-  - coverage run --source=main tests.py
+  - sudo python tests.py
 
 
 after_success:
