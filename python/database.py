@@ -9,7 +9,7 @@ db = client.record
 
 UPLOAD_FOLDER = "../storage"
 
-REQUIRED_ARTICLE_FIELDS = ['title', 'content', 'sectionID', 'authorIDs', 'date']
+REQUIRED_ARTICLE_FIELDS = ['title', 'content', 'sectionID', 'staffIDs', 'date']
 REQUIRED_STAFF_FIELDS = ['name', 'position']
 REQUIRED_SECTION_FIELDS = ['title']
 
@@ -23,17 +23,17 @@ def getArticles(query):
     articles = [a for a in db.article.find(query)]
     validArticles = []
     for article in articles:
-        article['authors'] = []
+        article['staffs'] = []
 
         # Get authors
-        for authorID in article['authorIDs']:
-            authors = getStaffs({"_id": authorID})
-            if len(authors) == 0:
+        for staffID in article['staffIDs']:
+            staffs = getStaffs({"_id": staffID})
+            if len(staffs) == 0:
                 break
             else:
-                article['authors'].append(authors[0])
-        if len(article['authors']) < len(article['authorIDs']):
-            print("INVALID AUTHOR")
+                article['staffs'].append(staffs[0])
+        if len(article['staffs']) < len(article['staffIDs']):
+            print("INVALID STAFF")
             continue
 
         # Get section
@@ -54,10 +54,10 @@ def createArticle(article):
         print("Not all fields")
         return False
     elif db.section.find_one({"_id": article['sectionID']}) is None:
-        print("Invalid section")
+        print("Invalid section: " + article['sectionID'])
         return False
-    elif any([db.staff.find_one({"_id": authorID}) is None for authorID in article['authorIDs']]):
-        print("Invalid author")
+    elif any([db.staff.find_one({"_id": staffID}) is None for staffID in article['staffIDs']]):
+        print("Invalid staff")
         return False
     else:
         db.article.insert_one(article)

@@ -11,6 +11,7 @@ def article():
     if request.args.get('articleID') is not None:
         return dumps(db.getArticles({"_id": ObjectId(request.args.get('articleID'))}))
     if request.args.get('sectionID') is not None:
+        print("section")
         return dumps(db.getArticles({"sectionID": ObjectId(request.args.get('sectionID'))}))
     if request.args.get('authorID') is not None:
         return dumps(db.getArticles({"authorIDs": {"$elemMatch": {"$in": [ObjectId(request.args.get('authorID'))]}}}))

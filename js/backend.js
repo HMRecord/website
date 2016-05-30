@@ -6,12 +6,11 @@ var STAFF_URL = API_URL+"staff";
 
 var getArticle = {
   ajaxCall: function(params, callback) {
-    console.log(ARTICLE_URL)
-    console.log(params)
     $.ajax({
       url: ARTICLE_URL,
       cache: false,
-      data: {page: "1"},
+      method: "GET",
+      data: params,
       async: true,
       success: function(result) {
         callback($.parseJSON(result));
@@ -34,8 +33,9 @@ var getArticle = {
   all: function(page, callback) {
     this.ajaxCall({page: page}, callback)
   },
-  bySection: function(page, sectionID, callback) {
-    this.ajaxCall({page: page, sectionID: sectionID}, callback);
+  bySection: function(sectionID, callback) {
+    console.log("BY SECTION: " + sectionID)
+    this.ajaxCall({sectionID: sectionID}, callback);
   },
   byID: function(articleID, callback) {
     this.ajaxCall({articleID: articleID}, function(articleArray) {
@@ -44,7 +44,7 @@ var getArticle = {
     });
   },
   byQuery: function(query) {
-    return [this.byID(69),this.byID(69)];
+    return null;
   },
   byStaff: function(authorID, callback) {
     this.ajaxCall({authorID: authorID}, callback);
@@ -105,15 +105,8 @@ var admin = {
   editStaff: function(staff) {
     return this.ajaxCall("staff", 'PUT', staff).responseText;
   },
-  uploadArticle: function(title,writer,section,imageid,imagecredit,file) {
-    return this.ajaxCall("article", 'POST', {
-      title: title,
-      writer: writer,
-      section: section,
-      imageid: imageid,
-      imagecredit: imagecredit,
-      file: file
-    }).responseText;
+  newArticle: function(article) {
+    return this.ajaxCall("article", 'POST', article).responseText;
   },
   deleteArticle: function(articleID) {
     return this.ajaxCall("article/"+articleID, 'DELETE', {}).responseText;
@@ -121,7 +114,7 @@ var admin = {
   deleteSection: function(sectionID) {
     return this.ajaxCall("section/"+sectionID, 'DELETE', {}).responseText;
   },
-  addSection: function(section) {
+  newSection: function(section) {
     return this.ajaxCall("section", 'POST', section).responseText;
   },
   uploadImages: function(images, callback) {

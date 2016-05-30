@@ -1,6 +1,9 @@
 function compareWithSharedKeys(obj1, obj2) {
   for(name in obj1) {
-    if(obj2.hasOwnProperty(name) && name != "_id" && obj1[name] !== obj2[name]) {
+    if(obj2.hasOwnProperty(name) && name != "_id" && JSON.stringify(obj1[name]) !== JSON.stringify(obj2[name])) {
+      console.log(name)
+      console.log(obj1[name])
+      console.log(obj2[name])
       return false;
     }
   }
@@ -38,10 +41,47 @@ QUnit.test("Section", function( assert ) {
 
   admin.login(adminConfig.password)
 
-  //console.log(admin.addSection(section))
-  assert.ok(admin.addSection(section) === 'good');
+  assert.ok(admin.newSection(section) === 'good');
 
   var returnedSection = getSection.byTitle(section.title);
   assert.ok(compareWithSharedKeys(section, returnedSection));
   assert.ok(admin.deleteSection(returnedSection._id.$oid) === 'good');
+});
+
+QUnit.test("Article", function( assert ) {
+  admin.login(adminConfig.password);
+
+  var section = {title: "sports"};
+  admin.newSection(section);
+  section = getSection.byTitle(section.title);
+
+  var staff = {name: "Michael Truell", position: "Contributing Writer"};
+  admin.newStaff(staff);
+  staff = getStaff.byName(staff.name);
+
+  var article = {
+    title: "Dummy article",
+    staffIDs: [staff._id],
+    sectionID: section._id,
+    date: Date(),
+    content: "Lorem Ipsum."
+  }
+
+  assert.ok(admin.newArticle(article) === 'good');
+
+  getArticle.bySection(section._id.$oid, function(newArticles) {
+    assert.ok(compareWithSharedKeys(newArticles[0], article));
+    article = newArticles[0];
+
+
+    getArticle.byID(article._id.$oid, function(newArticles) {
+      assert.ok(compareWithSharedKeys(newArticles[0], article));
+
+      getArticle.byStaff(staff._id.$oid, function(newArticles) {
+        assert.ok(compareWithSharedKeys(newArticles[0], article));
+
+        assert.ok(admin.deleteArticle(article._id.$oid) === 'good');
+      });
+    });
+  });
 });
