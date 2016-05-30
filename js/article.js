@@ -23,7 +23,7 @@ function renderArticle(article) {
 
 	$("#title").text(article.title);
 
-	$("#author").html('<h4 id="author">by '+getStaffLink(article.authors)+'</a>');
+	$("#author").html('<h4 id="author">by '+getStaffLink(article.staffs)+'</a>');
 	$("#date").text(article.date);
 
 	var paragraphs = article.content.split("\n");
