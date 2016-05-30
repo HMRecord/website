@@ -35,4 +35,4 @@ def section():
         return dumps(db.getSections({"_id": ObjectId(request.args.get('sectionID'))}))
     if request.args.get('title') is not None:
         return dumps(db.getSections({'title': request.args.get('title')}))
-    return dumps(db.getSections())
+    return dumps(db.getSections({}))

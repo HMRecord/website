@@ -7,7 +7,7 @@ from pymongo import MongoClient
 import base64
 import copy
 
-INVALID_ARTICLE = {"title": "B", "content": "afds", "sectionID": "23", "authorIDs": ["69"], "date": "Blah"}
+INVALID_ARTICLE = {"title": "B", "content": "afds", "sectionID": "23", "staffIDs": ["69"], "date": "Blah"}
 
 STAFF = {"name": "Michael Truell", "position": "CTO"}
 SECTION = {"title": "Sports"}
@@ -29,7 +29,7 @@ def getValidArticle(db):
 
     sectionID = sections[0]['_id']
     staffID = staffs[0]['_id']
-    return {"title": "Article Title", "content": "Article content goes here.", "date": "May 28, 2016", "sectionID": sectionID, "authorIDs": [staffID]}
+    return {"title": "Article Title", "content": "Article content goes here.", "date": "May 28, 2016", "sectionID": sectionID, "staffIDs": [staffID]}
 
 
 def getAuthHeader(username, password):
@@ -74,7 +74,7 @@ class APITester(unittest.TestCase):
     def testGETValidArticle(self):
         def isSameAricle(article1, article2):
             for field in list(article1.keys())+list(article2.keys()):
-                if field not in ['_id', 'section', 'authors']:
+                if field not in ['_id', 'section', 'staffs']:
                     if article1[field] != article2[field]:
                         return False
             return True
