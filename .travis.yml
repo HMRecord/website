@@ -1,0 +1,14 @@
+sudo: true
+
+language: python
+
+before_install:
+  - sudo apt-get update -qq
+
+install:
+  - cd ~/build/HMRecord/website
+  - ./install
+
+script:
+  - cd ~/build/HMRecord/website
+  - ./runTests
