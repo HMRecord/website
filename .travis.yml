@@ -16,11 +16,9 @@ install:
   - pip install coveralls
 
 script:
-  - cd ~/build/HMRecord/website
-  - cd python
-
+  - cd ~/build/HMRecord/website/python
   - sudo mongod &
-  - sudo python tests.py
+  - coverage run --source=main tests.py
 
 
 after_success:
