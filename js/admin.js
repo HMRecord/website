@@ -28,7 +28,7 @@ $(document).ready(function() {
 		var position = $("#newStaffPosition").val();
 
 		if (name !== "" && position !== "") {
-			if (admin.newStaff(name,position) === "good") {
+			if (admin.newStaff({name: name, position: position}) === "good") {
 				bootAlert(true,"Staff registration succesful.","Welcome, "+name+".");
 				$("#newStaffName").val("");
 				$("#newStaffPosition").val("");
@@ -42,7 +42,9 @@ $(document).ready(function() {
 		var position = $("#editStaffPosition").val();
 
 		if (name !== "" && position !== "") {
-			if (admin.editStaff(name,position) === "good") {
+			var staff = getStaff.byName(name);
+			staff.position = position;
+			if (admin.editStaff(staff) === "good") {
 				bootAlert(true,"Staff position change succesful.","Congrats, "+name+".");
 				$("#editStaffName").val("");
 				$("#editStaffPosition").val("");
@@ -57,14 +59,14 @@ $(document).ready(function() {
 		var imageid = $("#newArticleImageID").val();
 		var imagecredit = $("#newArticleImageCredit").val();
 		var file = $("#newArticleUpload")[0].files[0];
-
+		console.log(file);
 
 		if (title !== "" && writer !== "" && section !== "" && file != null) {
-			var upload = admin.uploadArticle(title,writer,section,imageid,imagecredit,file);
+			var upload = admin.newArticle({title:title,staffIDs:[getStaff.byName(writer)._id],sectionID:getSection.byTitle(section)._id,content:"Lorem ipsum",date:Date()});
 			if (upload !== "good") {
 				bootAlert(false, "Upload error.", upload);
 			} else {
-				bootAlert(false, "Upload succesful.", "New article added.")
+				bootAlert(true, "Upload succesful.", "New article added.")
 				$("#newArticleUpload").filestyle('clear');
 				$("#newArticleTitle").val("");
 				$("#newArticleWriter").val("");
@@ -88,22 +90,22 @@ $(document).ready(function() {
 
 	$("#sectionBtn").click(function() {
 		var option = $('input[name=sectionRadio]:checked', '#sectionRadio').val();
-		var section = $("#sectionName").val();
+		var title = $("#sectionName").val();
 
-		if (section === "" || option == null) {
+		if (title === "" || option == null) {
 			bootAlert(false,"Incomplete fields.", "Please check all required fields.");
 			return;
 		}
 
 		if (option === "add") {
-			var response = admin.addSection(section);
+			var response = admin.newSection({title:title});
 			if (response === "good") {
-				bootAlert(true, "Addition succesful.", "Section \""+section+"\" added.");
+				bootAlert(true, "Addition succesful.", "Section \""+title+"\" added.");
 			} else bootAlert(false, "Addition failed.", response);
 		} else {
-			var response = admin.deleteSection(section);
+			var response = admin.deleteSection(getSection.byName(title));
 			if (response === "good") {
-				bootAlert(true, "Deletion succesful.", "Section \""+section+"\" deleted.");
+				bootAlert(true, "Deletion succesful.", "Section \""+title+"\" deleted.");
 			} else bootAlert(false, "Deletion failed.", response);
 		}
 	});

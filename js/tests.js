@@ -31,7 +31,7 @@ QUnit.test("Staff", function( assert ) {
   staff = returnedStaff;
   staff.name = "John";
   assert.ok(admin.editStaff(staff) === 'good');
-  assert.ok(compareWithSharedKeys(getStaff.byID(staff._id), staff));
+  assert.ok(compareWithSharedKeys(getStaff.byID(staff._id.$oid), staff));
 });
 
 QUnit.test("Section", function( assert ) {
