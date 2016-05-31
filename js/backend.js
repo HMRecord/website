@@ -75,6 +75,9 @@ var getSection = {
       async: false
     }).responseText);
   },
+  all: function() {
+    return this.ajaxCall({});
+  },
   byTitle: function(title) {
     return this.ajaxCall({title: title})[0];
   }
