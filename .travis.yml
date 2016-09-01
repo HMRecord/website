@@ -17,3 +17,6 @@ install:
 script:
   - cd ~/build/HMRecord/website
   - sudo ./runTests.sh
+
+notifications:
+  slack: frclions:ijRxNQTNjtcARegMTPC3sLbf
