@@ -99,7 +99,7 @@
 							</div>
 				  		</div>
 					</div>
-					<div class="panel panel-default">
+					<!--<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">Manage Sections</h3>
 						</div>
@@ -126,8 +126,7 @@
 							</div>
 						</div>
 					</div>
-
-				</div>
+				</div>-->
 				<div class="col-md-6">
 					<div class="panel panel-default">
 						<div class="panel-heading">
@@ -150,7 +149,14 @@
 								<div class="form-group">
 									<label for="newArticleSection" class="col-sm-2 control-label">Section</label>
 									<div class="col-sm-10">
-										<input type="text" class="form-control" id="newArticleSection" placeholder="Opinions">
+										<select class="form-control" id="newArticleSection">
+									        <option value="newsId">News</option>
+									        <option value="opinionsID">Opinions</option>
+									        <option value="featuresID">Features</option>
+									        <option value="artsID">Arts &amp; Entertainment</option>
+									        <option value="mdID">Middle Division</option>
+											<option value="ldID">Lions' Den</option>
+									    </select>
 									</div>
 								</div>
 								<div class="form-group">
@@ -199,7 +205,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="panel panel-default">
+					<!--<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">Upload Issue</h3>
 						</div>
@@ -218,7 +224,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div>-->
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title"><button class="btn btn-primary btn-block" data-toggle="modal" data-target="#helpModal">Help</button></h3>
@@ -248,8 +254,8 @@
 
 						<p>The field <code>id</code> is simply the ID given when the image was uploaded. Descriptions are optional, and staff in credit must be added to the system first via the "Add Staff Member" panel.</p>
 
-						<h3>Issue Uploading</h3>
-						<p>Issues can be uploaded to the archive page via the "Upload Issue" panel.  Be sure to name archives nicely, as the raw filename will be displayed to visitors.</p>
+						<!--<h3>Issue Uploading</h3>
+						<p>Issues can be uploaded to the archive page via the "Upload Issue" panel.  Be sure to name archives nicely, as the raw filename will be displayed to visitors.</p>-->
 
 						<h3>About This Website</h3>
 						<p>This incarnation of the Record website was created by Joshua Gruenstein and Michael Truell.  The technology stack is Apache, Python Flask, PHP, and Bootstrap on the front-end.  The code can be found on <a href="https://github.com/HMRecord/website">Github</a>.</p>
