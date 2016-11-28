@@ -24,7 +24,15 @@ function renderArticle(article) {
 	$("#title").text(article.title);
 
 	$("#author").html('<h4 id="author">by '+getStaffLink(article.staffs)+'</a>');
-	$("#date").text(article.date);
+
+    var articleDate = new Date(article.date);
+    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    var day = articleDate.getDate();
+    var month = monthNames[articleDate.getMonth()];
+    var year = articleDate.getFullYear();
+
+    $("#date").text(month + " " + day + ", " + year);
 
 	var paragraphs = article.content.split("\n");
 	var contentString = "";
