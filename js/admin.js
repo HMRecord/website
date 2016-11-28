@@ -55,7 +55,8 @@ $(document).ready(function() {
     $("#newArticleBtn").click(function() {
         var title = $("#newArticleTitle").val();
         var writer = $("#newArticleWriter").val();
-        var section = $("#newArticleSection").val();
+        var sectionRadio = document.getElementById("newArticleSection");
+        var section = e.options[e.selectedIndex].value;
         var imageid = $("#newArticleImageID").val();
         var imagecredit = $("#newArticleImageCredit").val();
         var file = $("#newArticleUpload")[0].files[0];
@@ -138,6 +139,4 @@ $(document).ready(function() {
             bootAlert(true, "Upload" + (files.length==1?"":"s") + " succesful.", "");
         } else bootAlert(false, "Upload failed.", response);
     });
-
-
 });
