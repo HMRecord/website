@@ -1,4 +1,4 @@
-var page = 1;
+var lastArticleID = null;
 var section = "";
 
 function setDate() {
@@ -41,6 +41,8 @@ function populateArticles(articles,append) {
 		else right += stringifyArticle(articles[i-1]);
 	}
 
+	lastArticleID = articles[articles.length-1]['_id'];
+
 	if (append) {
 		$("#leftColumn").append(left);
 		$("#middleColumn").append(middle);
@@ -55,15 +57,13 @@ function populateArticles(articles,append) {
 function refreshArticles(append) {
 	if (section === null || ["opinions","news","sports"].indexOf(section) < 0) {
 		console.log("Get all")
-		getArticle.all(page,function(articles) {
-			console.log("reutrned")
-			console.log(articles)
+		getArticle.all(lastArticleID, articles,function(articles) {
 			populateArticles(articles,append);
 		});
 	}
 	else {
 		console.log("get section")
-		getArticle.bySection(page,section, function(articles) {
+		getArticle.bySection(lastArticleID, articles,function(articles) {
 			populateArticles(articles,append);
 		});
 	}
@@ -72,7 +72,8 @@ function refreshArticles(append) {
 
 $(document).ready(function() {
 	section = getQuery();
-
+	console.log("WUT");
+	console.log("SECTION: " + section);
 	refreshArticles(false);
 
 	/*$("#loadMoreBtn").click(function(e) {

@@ -31,12 +31,11 @@ var getArticle = {
         });
         console.log("Done with request")
     },
-    all: function(page, callback) {
-        this.ajaxCall({page: page}, callback)
+    all: function(lastArticleID, articles, callback) {
+        this.ajaxCall({lastArticleID: lastArticleID, articles: articles}, callback)
     },
-    bySection: function(sectionID, callback) {
-        console.log("BY SECTION: " + sectionID)
-        this.ajaxCall({sectionID: sectionID}, callback);
+    bySection: function(sectionID, lastArticleID, articles, callback) {
+        this.ajaxCall({sectionID: sectionID, lastArticleID: lastArticleID, articles: articles}, callback);
     },
     byID: function(articleID, callback) {
         this.ajaxCall({articleID: articleID}, function(articleArray) {
