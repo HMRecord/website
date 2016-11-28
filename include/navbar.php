@@ -13,17 +13,15 @@
 				<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
 			</a></li>
 
-			<li class="dropdown" id="navDrop">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sections<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="index.php?opinions">Opinions</a></li>
-					<li><a href="index.php?news">News</a></li>
-					<li><a href="index.php?sports">Lions Den</a></li>
-				</ul>
-			</li>
-			<li><a href="archives.php">
+			<li><a href="index.php?news">News</a></li>
+			<li><a href="index.php?opinions">Opinions</a></li>
+			<li><a href="index.php?features">Features</a></li>
+			<li><a href="index.php?artsent">Arts &amp; Entertainment</a></li>
+			<li><a href="index.php?middle">Middle Division</a></li>
+			<li><a href="index.php?lionsden">Lions' Den</a></li>
+			<!--<li><a href="archives.php">
 				Archives
-			</a></li>
+			</a></li>-->
 
 		</ul>
 		<div class="navbar-form navbar-right" role="search" id="navSearch">
