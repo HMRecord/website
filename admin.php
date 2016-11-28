@@ -127,7 +127,8 @@
 						</div>
 					</div>
 				</div>-->
-				<div class="col-md-6">
+            </div>
+            <div class="col-md-6">
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">Upload Article</h3>
@@ -150,7 +151,7 @@
 									<label for="newArticleSection" class="col-sm-2 control-label">Section</label>
 									<div class="col-sm-10">
 										<select class="form-control" id="newArticleSection">
-									        <option value="newsId">News</option>
+									        <option value="News">News</option>
 									        <option value="opinionsID">Opinions</option>
 									        <option value="featuresID">Features</option>
 									        <option value="artsID">Arts &amp; Entertainment</option>
@@ -258,7 +259,7 @@
 						<p>Issues can be uploaded to the archive page via the "Upload Issue" panel.  Be sure to name archives nicely, as the raw filename will be displayed to visitors.</p>-->
 
 						<h3>About This Website</h3>
-						<p>This incarnation of the Record website was created by Joshua Gruenstein and Michael Truell.  The technology stack is Apache, Python Flask, PHP, and Bootstrap on the front-end.  The code can be found on <a href="https://github.com/HMRecord/website">Github</a>.</p>
+						<p>This incarnation of the Record website was created by Joshua Gruenstein, Henry Wildermuth, and Michael Truell.  The technology stack is Apache, Python Flask, PHP, and Bootstrap on the front-end.  The code can be found on <a href="https://github.com/HMRecord/website">Github</a>.</p>
 						<p>The website is hosted by <a href="https://www.digitalocean.com/">DigitalOcean</a>, using the email address hmrecordtech@gmail.com with the same password used to gain access to this page.  For domain name related concerns, you can contact Horace Mann IT.</p>
 					</div>
 					<div class="modal-footer">
