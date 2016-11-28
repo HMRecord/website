@@ -56,13 +56,14 @@ $(document).ready(function() {
         var title = $("#newArticleTitle").val();
         var writer = $("#newArticleWriter").val();
         var sectionRadio = document.getElementById("newArticleSection");
-        var section = e.options[e.selectedIndex].value;
+        var section = sectionRadio.options[sectionRadio.selectedIndex].value;
         var imageid = $("#newArticleImageID").val();
         var imagecredit = $("#newArticleImageCredit").val();
         var file = $("#newArticleUpload")[0].files[0];
         console.log(file);
 
         if (title !== "" && writer !== "" && section !== "" && file != null) {
+            console.log(section)
             var upload = admin.newArticle({title:title,staffIDs:[getStaff.byName(writer)._id],sectionID:getSection.byTitle(section)._id,content:"Lorem ipsum",date:Date()});
             if (upload !== "good") {
                 bootAlert(false, "Upload error.", upload);

@@ -9,7 +9,7 @@
 		<link rel="shortcut icon" href="img/favicon.ico" />
 		<title>HM Record Search</title>
 
-		<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Lato:400,300,700,400italic,300italic' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Crimson+Text:400,700,400italic,700italic|Lato:400,300,700,400italic,300italic' rel='stylesheet' type='text/css'>
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/general.css" rel="stylesheet">
 		<link href="css/search.css" rel="stylesheet">

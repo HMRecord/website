@@ -127,7 +127,8 @@
 						</div>
 					</div>
 				</div>-->
-				<div class="col-md-6">
+            </div>
+            <div class="col-md-6">
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">Upload Article</h3>
@@ -150,7 +151,7 @@
 									<label for="newArticleSection" class="col-sm-2 control-label">Section</label>
 									<div class="col-sm-10">
 										<select class="form-control" id="newArticleSection">
-									        <option value="newsId">News</option>
+									        <option value="News">News</option>
 									        <option value="opinionsID">Opinions</option>
 									        <option value="featuresID">Features</option>
 									        <option value="artsID">Arts &amp; Entertainment</option>
