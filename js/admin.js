@@ -123,7 +123,7 @@ $(document).ready(function() {
         var response = admin.uploadImages(files);
         if (response.substring(0, 5) === "good: ") {
             $("#newArticleUpload").filestyle('clear');
-            bootAlert(true, "Upload succesful.", "ID" + (files.length==1?" is ":"s are ") + response.substring(5, response.length));
+            bootAlert(true, "Upload succesful.", "Filename" + (files.length==1?" is ":"s are ") + response.substring(5, response.length));
         } else bootAlert(false, "Upload failed.", response);
     });
 
