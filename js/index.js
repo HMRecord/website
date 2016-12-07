@@ -55,15 +55,15 @@ function populateArticles(articles,append) {
 }
 
 function refreshArticles(append) {
-	if (section === null || ["opinions","news","sports"].indexOf(section) < 0) {
+	if (section === null || ["583cb3ed17942d2f1e7c1a35","583cb3f217942d2f1e7c1a36","583cb3fb17942d2f1e7c1a37","583cb41017942d2f1e7c1a38","583cb41a17942d2f1e7c1a39","583cb42317942d2f1e7c1a3a"].indexOf(section) < 0) {
 		console.log("Get all")
-		getArticle.all(lastArticleID, articles,function(articles) {
+		getArticle.all(lastArticleID,9,function(articles) {
 			populateArticles(articles,append);
 		});
 	}
 	else {
 		console.log("get section")
-		getArticle.bySection(lastArticleID, articles,function(articles) {
+		getArticle.bySection(section,lastArticleID,9,function(articles) {
 			populateArticles(articles,append);
 		});
 	}

@@ -9,8 +9,8 @@
 		<link rel="shortcut icon" href="img/favicon.ico" />
 		<title>HM Record: Article Title</title>
 
-		<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Lato:400,300,700,400italic,300italic' rel='stylesheet' type='text/css'>
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Crimson+Text:400,700,400italic,700italic|Lato:400,300,700,400italic,300italic' rel='stylesheet' type='text/css'>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/general.css" rel="stylesheet">
 		<link href="css/article.css" rel="stylesheet">
 	</head>

@@ -62,21 +62,30 @@ $(document).ready(function() {
         var file = $("#newArticleUpload")[0].files[0];
         console.log(file);
 
-        if (title !== "" && writer !== "" && section !== "" && file != null) {
-            console.log(section)
-            var upload = admin.newArticle({title:title,staffIDs:[getStaff.byName(writer)._id],sectionID:getSection.byTitle(section)._id,content:"Lorem ipsum",date:Date()});
-            if (upload !== "good") {
-                bootAlert(false, "Upload error.", upload);
-            } else {
-                bootAlert(true, "Upload succesful.", "New article added.")
-                $("#newArticleUpload").filestyle('clear');
-                $("#newArticleTitle").val("");
-                $("#newArticleWriter").val("");
-                $("#newArticleImageID").val("");
-                $("#newArticleImageCredit").val("");
-                $("#newArticleSection").val("");
-            }
-        } else bootAlert(false, "Incomplete fields.", "Please check all required fields.");
+        if (!file.type.match('plain')) {
+                bootAlert(false,"Wrong file format.","Please upload a .txt file.");
+                return;
+        }
+
+        var fileRead = new FileReader();
+        fileRead.addEventListener("load", function(event) {
+            var articleContents = event.target.result;
+            if (title !== "" && writer !== "" && section !== "" && file != null) {
+                console.log(section)
+                var upload = admin.newArticle({title:title,staffIDs:[getStaff.byName(writer)._id],sectionID:getSection.byTitle(section)._id,content:articleContents,date:Date()});
+                if (upload !== "good") {
+                    bootAlert(false, "Upload error.", upload);
+                } else {
+                    bootAlert(true, "Upload succesful.", "New article added.")
+                    $("#newArticleUpload").filestyle('clear');
+                    $("#newArticleTitle").val("");
+                    $("#newArticleWriter").val("");
+                    $("#newArticleImageID").val("");
+                    $("#newArticleImageCredit").val("");
+                    $("#newArticleSection").val("");
+                }
+            } else bootAlert(false, "Incomplete fields.", "Please check all required fields.");
+        }); fileRead.readAsText(file);
     });
 
     $("#deleteArticleBtn").click(function() {

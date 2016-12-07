@@ -18,9 +18,12 @@ def updateDB(newDatabase):
     global db
     db = newDatabase
 
+def getArticles(query, number=None):
+    if number != None:
+        articles = [a for a in db.article.find(query)]
+    else:
+        articles = [a for a in db.article.find(query)]
 
-def getArticles(query):
-    articles = [a for a in db.article.find(query)]
     validArticles = []
     for article in articles:
         article['staffs'] = []
@@ -46,7 +49,6 @@ def getArticles(query):
 
         validArticles.append(article)
     return validArticles
-
 
 def createArticle(article):
     print(article)

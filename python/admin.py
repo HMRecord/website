@@ -3,14 +3,18 @@ from flask import Blueprint, jsonify, request, abort, request, Response, make_re
 from flask.ext.httpauth import HTTPBasicAuth
 from bson.json_util import loads, dumps
 import database as db
+import configparser
 
 adminAPI = Blueprint('adminAPI', __name__)
 
 auth = HTTPBasicAuth()
 
+config = configparser.ConfigParser()
+config.read("../config.ini")
+ADMIN_PASSWORD = config.get("admin", "password")
 
 def checkAuth(username, password):
-    return username == 'admin' and password == 'd'
+    return username == 'admin' and password == ADMIN_PASSWORD
 
 
 def authenticate():

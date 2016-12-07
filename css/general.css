@@ -2,6 +2,7 @@
 
 body {
 	font-family: 'Crimson Text', serif;
+    font-size:16px;
 }
 
 /* NAVBAR */
@@ -10,6 +11,7 @@ body {
 	border: none;
 	box-shadow:none;
 
+    font-size: 14px;
 	font-family: 'Lato', sans-serif;
 }
 

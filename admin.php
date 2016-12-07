@@ -129,63 +129,63 @@
 				</div>-->
             </div>
             <div class="col-md-6">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Upload Article</h3>
-				  		</div>
-				  		<div class="panel-body">
-							<div class="formBox">
-								<div class="form-group">
-								    <label for="newStaffName" class="col-sm-2 control-label">Title</label>
-								    <div class="col-sm-10">
-										<input type="text" class="form-control" id="newArticleTitle" placeholder="Students Develop Novel Robot Control System, Win ISEF">
-								    </div>
-								</div>
-								<div class="form-group">
-									<label for="newArticleWriter" class="col-sm-2 control-label">Writer(s)</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" id="newArticleWriter" placeholder="John Kasich, Paul Ryan">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="newArticleSection" class="col-sm-2 control-label">Section</label>
-									<div class="col-sm-10">
-										<select class="form-control" id="newArticleSection">
-									        <option value="News">News</option>
-									        <option value="opinionsID">Opinions</option>
-									        <option value="featuresID">Features</option>
-									        <option value="artsID">Arts &amp; Entertainment</option>
-									        <option value="mdID">Middle Division</option>
-											<option value="ldID">Lions' Den</option>
-									    </select>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="newArticleImageID" class="col-sm-2 control-label">Header Image</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" id="newArticleImageID" placeholder="optional">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="newArticleImageCredit" class="col-sm-2 control-label">Image Credit</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" id="newArticleImageCredit" placeholder="Bernie Sanders">
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="newArticleUpload" class="col-sm-2 control-label">Article Upload</label>
-									<div class="col-sm-10">
-										<input id="newArticleUpload" type="file" class="form-control filestyle" data-icon="false">
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-offset-2 col-sm-10">
-										<button type="submit" id="newArticleBtn" class="btn btn-block btn-default">Submit</button>
-									</div>
-								</div>
-							</div>
-				  		</div>
-					</div>
+                                    <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                    <h3 class="panel-title">Upload Article</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                    <div class="formBox">
+                                                            <div class="form-group">
+                                                                <label for="newStaffName" class="col-sm-2 control-label">Title</label>
+                                                                <div class="col-sm-10">
+                                                                            <input type="text" class="form-control" id="newArticleTitle" placeholder="Students Develop Novel Robot Control System, Win ISEF">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                    <label for="newArticleWriter" class="col-sm-2 control-label">Writer(s)</label>
+                                                                    <div class="col-sm-10">
+                                                                            <input type="text" class="form-control" id="newArticleWriter" placeholder="John Kasich, Paul Ryan">
+                                                                    </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                    <label for="newArticleSection" class="col-sm-2 control-label">Section</label>
+                                                                    <div class="col-sm-10">
+                                                                            <select class="form-control" id="newArticleSection">
+                                                                            <option value="News">News</option>
+                                                                            <option value="opinionsID">Opinions</option>
+                                                                            <option value="featuresID">Features</option>
+                                                                            <option value="artsID">Arts &amp; Entertainment</option>
+                                                                            <option value="mdID">Middle Division</option>
+                                                                                    <option value="ldID">Lions' Den</option>
+                                                                        </select>
+                                                                    </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                    <label for="newArticleImageID" class="col-sm-2 control-label">Header Image</label>
+                                                                    <div class="col-sm-10">
+                                                                            <input type="text" class="form-control" id="newArticleImageID" placeholder="optional">
+                                                                    </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                    <label for="newArticleImageCredit" class="col-sm-2 control-label">Image Credit</label>
+                                                                    <div class="col-sm-10">
+                                                                            <input type="text" class="form-control" id="newArticleImageCredit" placeholder="Bernie Sanders">
+                                                                    </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                    <label for="newArticleUpload" class="col-sm-2 control-label">Article Upload</label>
+                                                                    <div class="col-sm-10">
+                                                                            <input id="newArticleUpload" type="file" class="form-control filestyle" data-icon="false">
+                                                                    </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                    <div class="col-sm-offset-2 col-sm-10">
+                                                                            <button type="submit" id="newArticleBtn" class="btn btn-block btn-default">Submit</button>
+                                                                    </div>
+                                                            </div>
+                                                    </div>
+                                            </div>
+                                    </div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">Upload Image</h3>
