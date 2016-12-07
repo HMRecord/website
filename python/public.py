@@ -5,18 +5,18 @@ import database as db
 
 publicAPI = Blueprint('publicAPI', __name__)
 
-
 @publicAPI.route('/api/article', methods=['GET'])
 def article():
     if request.args.get('articleID') is not None:
         return dumps(db.getArticles({"_id": ObjectId(request.args.get('articleID'))}))
     if request.args.get('sectionID') is not None:
-        print("section")
         return dumps(db.getArticles({"sectionID": ObjectId(request.args.get('sectionID'))}))
     if request.args.get('staffID') is not None:
         return dumps(db.getArticles({"staffIDs": {"$elemMatch": {"$in": [ObjectId(request.args.get('staffID'))]}}}))
     if request.args.get('title') is not None:
         return dumps(db.getArticles({"title": request.args.get('title')}))
+    if request.args.get('lastArticleID') is not None and request.args.get('numArticles') is not None:
+        return dumps(db.getArticles({"_id":{"$gte": request.args.get('lastArticleID')}}, number=int(request.args.get("numArticles"))))
     return dumps(db.getArticles({}))
 
 

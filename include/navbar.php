@@ -13,12 +13,12 @@
 				<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
 			</a></li>
 
-			<li><a href="index.php?News">News</a></li>
-			<li><a href="index.php?Opinions">Opinions</a></li>
-			<li><a href="index.php?Features">Features</a></li>
-			<li><a href="index.php?Arts%20&amp;%20Entertainment">Arts &amp; Entertainment</a></li>
-			<li><a href="index.php?Middle%20Division">Middle Division</a></li>
-			<li><a href="index.php?Lions'%20Den">Lions' Den</a></li>
+			<li><a href="index.php?583cb3ed17942d2f1e7c1a35">News</a></li>
+			<li><a href="index.php?583cb3f217942d2f1e7c1a36">Opinions</a></li>
+			<li><a href="index.php?583cb3fb17942d2f1e7c1a37">Features</a></li>
+			<li><a href="index.php?583cb41017942d2f1e7c1a38">Arts &amp; Entertainment</a></li>
+			<li><a href="index.php?583cb41a17942d2f1e7c1a39">Middle Division</a></li>
+			<li><a href="index.php?583cb42317942d2f1e7c1a3a">Lions' Den</a></li>
 			<!--<li><a href="archives.php">
 				Archives
 			</a></li>-->

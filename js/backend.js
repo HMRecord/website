@@ -32,10 +32,12 @@ var getArticle = {
         console.log("Done with request")
     },
     all: function(lastArticleID, articles, callback) {
-        this.ajaxCall({lastArticleID: lastArticleID, articles: articles}, callback)
+        if (lastArticleID == null) this.ajaxCall({numArticles: articles},callback);
+        else this.ajaxCall({lastArticleID: lastArticleID, numArticles: articles}, callback)
     },
     bySection: function(sectionID, lastArticleID, articles, callback) {
-        this.ajaxCall({sectionID: sectionID, lastArticleID: lastArticleID, articles: articles}, callback);
+        if (lastArticleID == null) this.ajaxCall({sectionID: sectionID, numArticles: articles}, callback);
+        else this.ajaxCall({sectionID: sectionID, lastArticleID: lastArticleID, numArticles: articles}, callback);
     },
     byID: function(articleID, callback) {
         this.ajaxCall({articleID: articleID}, function(articleArray) {

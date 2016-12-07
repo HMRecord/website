@@ -19,9 +19,9 @@
 
 		<div class="container header">
 			<span id="headerDate"></span>
-			<h1>The Record</h1>
+			<h1>The Horace Mann Record</h1>
 			<hr />
-			<h4>Horace Mann's Weekly Newspaper Since 1913.</h4>
+			<h4>Horace Mann's Weekly Newspaper Since 1903.</h4>
 		</div>
 
 		<div class="container" id="articles">
