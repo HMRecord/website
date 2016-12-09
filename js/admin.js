@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     $("#passBtn").click(function() {
         var pass = $("#passField").val();
-        if (admin.login(pass) === "good") {
+        if (admin.login(pass) == true) {
             $("#adminBox").css("display","block");
             $("#loginBox").css("display","none");
             bootAlert(true,"Login succesful.","Admin access enabled.");
@@ -72,7 +72,7 @@ $(document).ready(function() {
             var articleContents = event.target.result;
             if (title !== "" && writer !== "" && section !== "" && file != null) {
                 console.log(section)
-                var upload = admin.newArticle({title:title,staffIDs:[getStaff.byName(writer)._id],sectionID:getSection.byTitle(section)._id,content:articleContents,date:Date()});
+                var upload = admin.newArticle({title:title,staffIDs:[getStaff.byName(writer)._id],sectionID:getSection.byTitle(section)._id,content:articleContents,date:Date(),imgID:imageid,imgCredit:imagecredit});
                 if (upload !== "good") {
                     bootAlert(false, "Upload error.", upload);
                 } else {
@@ -129,10 +129,10 @@ $(document).ready(function() {
             return;
         }
 
-        var response = admin.uploadImages(files);
-        if (response.substring(0, 5) === "good: ") {
+        var response = admin.uploadImages("submitForm");
+        if (response != "bad") {
             $("#newArticleUpload").filestyle('clear');
-            bootAlert(true, "Upload succesful.", "Filename" + (files.length==1?" is ":"s are ") + response.substring(5, response.length));
+            bootAlert(true, "Upload succesful.", "Filename" + (files.length==1?" is ":"s are ") + response);
         } else bootAlert(false, "Upload failed.", response);
     });
 

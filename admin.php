@@ -93,8 +93,7 @@
 								</div>
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
-										<button type="submit" id="deleteArticleBtn" class="btn btn-block btn-default">Submit</button>
-									</div>
+										<button type="submit" id="deleteArticleBtn" class="btn btn-block btn-default">Submit</button> </div>
 								</div>
 							</div>
 				  		</div>
@@ -195,12 +194,15 @@
 								<div class="form-group">
 									<label for="imageUpload" class="col-sm-2 control-label">Image(s)</label>
 									<div class="col-sm-10">
-										<input id="imageUpload" type="file" multiple class="form-control filestyle" data-icon="false">
+<form id="submitForm">
+										<input id="imageUpload" type="file" multiple class="form-control filestyle" name="file" data-icon="false">
+</form>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
 										<button type="submit" id="imageUploadBtn" class="btn btn-block btn-default">Submit</button>
+
 									</div>
 								</div>
 							</div>

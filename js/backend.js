@@ -103,9 +103,8 @@ var admin = {
     },
     login: function(pass) {
         this.password = pass;
-        var responseText = this.ajaxCall("staff", 'POST', {}).responseText;
-        console.log(responseText)
-        return responseText === "Bad request" ? "good" : responseText;
+        var statusCode = this.ajaxCall("test", 'GET', {}).status;
+        return statusCode == 200;
     },
     newStaff: function(staff) {
         return this.ajaxCall("staff", 'POST', staff).responseText;
@@ -125,8 +124,25 @@ var admin = {
     newSection: function(section) {
         return this.ajaxCall("section", 'POST', section).responseText;
     },
-    uploadImages: function(images, callback) {
-        calback(true, 3);
+    uploadImages: function(formID, callback) {
+        console.log($("#"+formID)[0])
+	var formData = new FormData($("#"+formID)[0]);
+        console.log(formData)
+	return $.ajax({
+            url: ADMIN_URL+"file",
+	    async: false,
+	    method: "POST",
+	    data: formData,
+	    processData: false,
+	    contentType: false,
+            headers: {
+                "Authorization": "Basic " + btoa("admin:" + this.password)
+            },
+	    xhr: function() {
+		var myXhr = $.ajaxSettings.xhr();
+		return myXhr;
+	    }
+	}).responseText;
     },
     uploadIssues: function(issues) {
         return true;

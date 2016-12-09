@@ -9,7 +9,7 @@ db = client.record
 
 UPLOAD_FOLDER = "../storage"
 
-REQUIRED_ARTICLE_FIELDS = ['title', 'content', "imgID", "imgAttribution", 'sectionID', 'staffIDs', 'date']
+REQUIRED_ARTICLE_FIELDS = ['title', 'content', 'sectionID', 'staffIDs', 'date']
 REQUIRED_STAFF_FIELDS = ['name', 'position']
 REQUIRED_SECTION_FIELDS = ['title']
 
@@ -122,7 +122,7 @@ def deleteSection(_id):
 def saveFile(file):
     def allowed_file(filename):
         return '.' in filename and \
-           filename.rsplit('.', 1)[1] == 'jpg'
+           filename.rsplit('.', 1)[1] in ['jpg', 'jpeg', 'png']
 
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)

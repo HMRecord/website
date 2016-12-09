@@ -91,7 +91,14 @@ def updateSection(sectionID):
 @adminAPI.route('/api/admin/file', methods=['POST'])
 @requiresAuth
 def file():
+    print(request.files)
     filename = db.saveFile(request.files['file'])
+    print(filename)
     if filename is not None:
         return filename
     return "bad"
+
+@adminAPI.route('/api/admin/test', methods=['GET'])
+@requiresAuth
+def test():
+    return ""

@@ -43,9 +43,9 @@ function renderArticle(article) {
 
 	$("#content").html(contentString);
 
-	if (article.hasOwnProperty('img')) {
+	if (article.hasOwnProperty('imgID')) {
 		var $img = $("#img");
-		$img.css("background-image","url('" + article.img.url + "')");
+		$img.css("background-image","url('/storage/" + article.imgID + "')");
 		$img.css("background-size","100%");
 		$img.css("background-position","50% 20%");
 		$img.css("background-repeat","no-repeat");
@@ -53,7 +53,7 @@ function renderArticle(article) {
 		$img.css("height","300px");
 		$img.css("margin-bottom","4px");
 
-		$("#caption").html("Image Credit: " + getStaffLink(article.img.staff) + "</a>");
+		$("#caption").html("Image Credit: " + getStaffLink(getStaff.byName(article.imgCredit)) + "</a>");
 	}
 }
 
