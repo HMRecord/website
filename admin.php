@@ -133,7 +133,7 @@
                                                     <h3 class="panel-title">Upload Article</h3>
                                             </div>
                                             <div class="panel-body">
-                                                    <div class="formBox">
+                                                    <div class="formBox form-horizontal">
                                                             <div class="form-group">
                                                                 <label for="newStaffName" class="col-sm-2 control-label">Title</label>
                                                                 <div class="col-sm-10">

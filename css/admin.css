@@ -10,6 +10,10 @@ body {
 	display:none;
 }
 
+.form-horizontal .form-group {
+    margin-bottom:-15px;
+}
+
 @media (min-width: 768px) {
 	.formBox {
 		margin-top:-15px;
