@@ -11,7 +11,7 @@
 		<ul class="nav navbar-nav navbar-left">
 			<li><a href="index.php" id="navHome">
 				<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-			</a></li>
+                        </a></li>
 
 			<li><a href="index.php?583cb3ed17942d2f1e7c1a35">News</a></li>
 			<li><a href="index.php?583cb3f217942d2f1e7c1a36">Opinions</a></li>
@@ -19,10 +19,7 @@
 			<li><a href="index.php?583cb41017942d2f1e7c1a38">Arts &amp; Entertainment</a></li>
 			<li><a href="index.php?583cb41a17942d2f1e7c1a39">Middle Division</a></li>
 			<li><a href="index.php?583cb42317942d2f1e7c1a3a">Lions' Den</a></li>
-			<!--<li><a href="archives.php">
-				Archives
-			</a></li>-->
-
+                        <li><a href="about.php">About</a></li>
 		</ul>
 	</div>
 </nav>
