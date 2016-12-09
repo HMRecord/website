@@ -151,11 +151,11 @@
                                                                     <div class="col-sm-10">
                                                                             <select class="form-control" id="newArticleSection">
                                                                             <option value="News">News</option>
-                                                                            <option value="opinionsID">Opinions</option>
-                                                                            <option value="featuresID">Features</option>
-                                                                            <option value="artsID">Arts &amp; Entertainment</option>
-                                                                            <option value="mdID">Middle Division</option>
-                                                                                    <option value="ldID">Lions' Den</option>
+                                                                            <option value="Opinions">Opinions</option>
+                                                                            <option value="Features">Features</option>
+                                                                            <option value="Arts & Entertainment">Arts &amp; Entertainment</option>
+                                                                            <option value="Middle Division">Middle Division</option>
+                                                                                    <option value="Lions' Den">Lions' Den</option>
                                                                         </select>
                                                                     </div>
                                                             </div>
