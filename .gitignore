@@ -96,3 +96,5 @@ ENV/
 storage/
 adminConfig.js
 config.ini
+
+*.swp
