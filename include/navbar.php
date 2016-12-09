@@ -24,15 +24,5 @@
 			</a></li>-->
 
 		</ul>
-		<div class="navbar-form navbar-right" role="search" id="navSearch">
-			<div class="form-group">
-				<div class="input-group">
-					<input type="text" class="form-control input-sm" id="searchField" placeholder="Search">
-					<span class="input-group-btn">
-					<button class="btn btn-default input-sm" type="button" id="searchBtn"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-					</span>
-				</div>
-			</div>
-		</div>
 	</div>
 </nav>
