@@ -1,4 +1,4 @@
-from pymongo import MongoClient
+from pymongo import MongoClient, DESCENDING
 from bson.objectid import ObjectId
 from bson.json_util import loads
 from werkzeug import secure_filename
@@ -19,10 +19,7 @@ def updateDB(newDatabase):
     db = newDatabase
 
 def getArticles(query, number=None):
-    if number != None:
-        articles = [a for a in db.article.find(query)]
-    else:
-        articles = [a for a in db.article.find(query)]
+    articles = [a for a in db.article.find(query).sort([("_id", DESCENDING)])]
 
     validArticles = []
     for article in articles:
