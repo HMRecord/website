@@ -1,6 +1,6 @@
 console.log(window.location.hostname)
-var API_URL = "http://"+window.location.hostname+":5000/api/";
-var ADMIN_URL = "http://"+window.location.hostname+":5000/api/admin/";
+var API_URL = "/api/";
+var ADMIN_URL = "/api/admin/";
 var ARTICLE_URL = API_URL+"article";
 var SECTION_URL = API_URL+"section";
 var STAFF_URL = API_URL+"staff";
