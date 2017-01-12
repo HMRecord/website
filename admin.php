@@ -151,10 +151,10 @@
                                                                     <div class="col-sm-10">
                                                                             <select class="form-control" id="newArticleSection">
                                                                             <option value="News">News</option>
-                                                                            <option value="5876f88977e0ad0674052a49">Editorials</option>
+                                                                            <option value="Editorials">Editorials</option>
 
-																			<option value="5876f88977e0ad0674052a4a">Op-Eds</option>
-																			<option value="5876f88977e0ad0674052a4b">Letters to Editor</option>
+																		<option value="Op-Eds">Op-Eds</option>
+																			<option value="Letters to Editor">Letters to the Editor</option>
                                                                             <option value="Features">Features</option>
                                                                             <option value="Arts & Entertainment">Arts &amp; Entertainment</option>
                                                                             <option value="Middle Division">Middle Division</option>
