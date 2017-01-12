@@ -82,6 +82,10 @@
 	font-weight:400;
 }
 
+#articles .category {
+	font-size:0.8em;
+}
+
 #articles .content {
 	margin-bottom:20px;
 }
