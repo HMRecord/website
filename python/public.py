@@ -9,10 +9,11 @@ publicAPI = Blueprint('publicAPI', __name__)
 def article():
     if request.args.get('articleID') is not None:
         return dumps(db.getArticles({"_id": ObjectId(request.args.get('articleID'))}))
-    if request.args.get('sectionID') is not None:
+    if (request.args.get('sectionID') is not None) and (request.args.get('sectionID') != "undefined"):
         if request.args.get('sectionID') == "opinions":
             return dumps(db.getArticles({"$or":[{"sectionID": ObjectId('5876f88977e0ad0674052a4a')},{"sectionID": ObjectId('5876f88977e0ad0674052a4b')},{"sectionID":ObjectId('5876f88977e0ad0674052a49')}]}))
-        return dumps(db.getArticles({"sectionID": ObjectId(request.args.get('sectionID'))}))
+        else:
+            return dumps(db.getArticles({"sectionID": ObjectId(request.args.get('sectionID'))}))
     if request.args.get('staffID') is not None:
         return dumps(db.getArticles({"staffIDs": {"$elemMatch": {"$in": [ObjectId(request.args.get('staffID'))]}}}))
     if request.args.get('title') is not None:
