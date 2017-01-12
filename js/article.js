@@ -43,7 +43,7 @@ function renderArticle(article) {
 
 	$("#content").html(contentString);
 
-	if (article.hasOwnProperty('imgID')) {
+	if (article.hasOwnProperty('imgID') && article.imgID != "") {
 		var $img = $("#img");
 		$img.css("background-image","url('/storage/" + article.imgID + "')");
 		$img.css("background-size","100%");

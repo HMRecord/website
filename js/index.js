@@ -19,15 +19,17 @@ function setDate() {
 
 function stringifyArticle(article) {
 	var string = "<div class='article'>";
-	if (article.hasOwnProperty('imgID')) {
+	if (article.hasOwnProperty('imgID') && article.imgID != "") {
 		string += "<div class='image' style=\'background-image: url(\"/storage/" + article.imgID + "\");\'></div>";
 	}
 
 	string += "<div class='heading'><a href='article.php?";
 	string += article._id.$oid + "'>" + article.title;
-	string += "</a></div><div class='author'>by ";
+	string += "</a></div><div><span class='author'>by ";
 	string += getStaffLink(article.staffs);
-	string += "</div><div class='content'>";
+	string += " |</span> <a class='category' href='/?";
+	string += article.sectionID.$oid + "'>" + article.section.title;
+	string += "</a></div><div class='content'>";
 	string += getNWords(article.content,50) + "</div></div>";
 	return string;
 }
