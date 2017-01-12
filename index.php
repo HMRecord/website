@@ -34,6 +34,8 @@
 			<div id="loadMore"><a href="#" id="loadMoreBtn">&#126; Load More &#126;</a></div>
 		</div>
 
+		<?php include 'include/footer.php'; ?>
+
 		<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 
