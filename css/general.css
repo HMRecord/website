@@ -41,6 +41,11 @@ html {
     text-shadow: none;
 }
 
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+
+
 #navDrop {
 	margin-left:10px;
 }

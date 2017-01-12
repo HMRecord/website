@@ -14,12 +14,18 @@
                         </a></li>
 
 			<li><a href="index.php?583cb3ed17942d2f1e7c1a35">News</a></li>
-			<li><a href="index.php?583cb3f217942d2f1e7c1a36">Opinions</a></li>
+			<li class="dropdown">
+                <a href="index.php?opinions" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opinions<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="index.php?5876f88977e0ad0674052a49">Editorials</a></li>
+                  <li><a href="index.php?5876f88977e0ad0674052a4a">Op-Eds</a></li>
+                  <li><a href="index.php?5876f88977e0ad0674052a4b">Letters to the Editor</a></li>
+                </ul>
+              </li>
 			<li><a href="index.php?583cb3fb17942d2f1e7c1a37">Features</a></li>
 			<li><a href="index.php?583cb41017942d2f1e7c1a38">Arts &amp; Entertainment</a></li>
 			<li><a href="index.php?583cb41a17942d2f1e7c1a39">Middle Division</a></li>
 			<li><a href="index.php?583cb42317942d2f1e7c1a3a">Lions' Den</a></li>
-                        <li><a href="about.php">About</a></li>
 		</ul>
 	</div>
 </nav>
