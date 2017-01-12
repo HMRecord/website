@@ -21,7 +21,7 @@
 			<span id="headerDate"></span>
 			<h1>The Horace Mann Record</h1>
 			<hr />
-			<h4>Published Since 1903.</h4>
+			<h4>Horace Mann School's Weekly Student Run Newspaper | Est. 1903</h4>
 		</div>
 
 		<div class="container" id="articles">
