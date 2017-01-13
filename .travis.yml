@@ -14,6 +14,8 @@ before_install:
 install:
   - cd ~/build/HMRecord/website
   - sudo ./install.sh
+  - echo "[admin]" > config.ini
+  - echo "password = d" >> config.ini
 
 script:
   - cd ~/build/HMRecord/website
