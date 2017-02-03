@@ -150,15 +150,14 @@
                                                                     <label for="newArticleSection" class="col-sm-2 control-label">Section</label>
                                                                     <div class="col-sm-10">
                                                                             <select class="form-control" id="newArticleSection">
-                                                                            <option value="News">News</option>
-                                                                            <option value="Editorials">Editorials</option>
-
-																		<option value="Op-Eds">Op-Eds</option>
-																			<option value="Letters to Editor">Letters to the Editor</option>
-                                                                            <option value="Features">Features</option>
-                                                                            <option value="Arts & Entertainment">Arts &amp; Entertainment</option>
-                                                                            <option value="Middle Division">Middle Division</option>
-                                                                                    <option value="Lions' Den">Lions' Den</option>
+                                                                            <option value="583cb3ed17942d2f1e7c1a35">News</option>
+                                                                            <option value="5876f88977e0ad0674052a49">Editorials</option>
+									    <option value="5876f88977e0ad0674052a4a">Op-Eds</option>
+									    <option value="5876f88977e0ad0674052a4b">Letters to the Editor</option>
+                                                                            <option value="583cb3fb17942d2f1e7c1a37">Features</option>
+                                                                            <option value="5893e661e10ed7e9a711ac48">Arts &amp; Entertainment</option>
+                                                                            <option value="583cb41a17942d2f1e7c1a39">Middle Division</option>
+                                                                            <option value="583cb42317942d2f1e7c1a3a">Lions' Den</option>
                                                                         </select>
                                                                     </div>
                                                             </div>

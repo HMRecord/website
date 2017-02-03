@@ -41,4 +41,9 @@ $(document).ready(function() {
 			window.location.href = "search.php?" + encodeURIComponent(query);
 		}
 	});
+
+	$("#opinionsLink").click(function(e) {
+		e.preventDefault();
+		window.location.replace("index.php?opinions");
+	});
 });

@@ -17,7 +17,7 @@ function setDate() {
 	$("#headerDate").text(monthNames[monthIndex] + " " + day + ", " + year);
 }
 
-function stringifyArticle(article) {
+function stringifyArticle(article, words) {
 	var string = "<div class='article'>";
 	if (article.hasOwnProperty('imgID') && article.imgID != "") {
 		string += "<div class='image' style=\'background-image: url(\"/storage/" + article.imgID + "\");\'></div>";
@@ -30,7 +30,7 @@ function stringifyArticle(article) {
 	string += " |</span> <a class='category' href='/?";
 	string += article.sectionID.$oid + "'>" + article.section.title;
 	string += "</a></div><div class='content'>";
-	string += getNWords(article.content,50) + "</div></div>";
+	string += getNWords(article.content,words) + "</div></div>";
 	return string;
 }
 
@@ -38,12 +38,12 @@ function populateArticles(articles,append) {
 	var left = "", middle = "", right = "";
 
 	for (var i=1; i<=articles.length; i++) {
-		if (i%3 == 1) left += stringifyArticle(articles[i-1]);
-		else if (i%3 == 2) middle += stringifyArticle(articles[i-1]);
-		else right += stringifyArticle(articles[i-1]);
+		if (i%3 == 1) left += stringifyArticle(articles[i-1], 50);
+		else if (i%3 == 2) middle += stringifyArticle(articles[i-1], 150);
+		else right += stringifyArticle(articles[i-1], 50);
 	}
 
-	lastArticleID = articles[articles.length-1]['_id'];
+	lastArticleID = articles[articles.length-1]._id.$oid;
 
 	if (append) {
 		$("#leftColumn").append(left);
@@ -57,15 +57,15 @@ function populateArticles(articles,append) {
 }
 
 function refreshArticles(append) {
-	if (section === null) {
+	if (!section || section == "undefined") {
 		console.log("Get all")
-		getArticle.all(lastArticleID,9,function(articles) {
+		getArticle.all(lastArticleID,6,function(articles) {
 			populateArticles(articles,append);
 		});
 	}
 	else {
 		console.log("get section")
-		getArticle.bySection(section,lastArticleID,9,function(articles) {
+		getArticle.bySection(section,lastArticleID,3,function(articles) {
 			populateArticles(articles,append);
 		});
 	}
@@ -74,15 +74,12 @@ function refreshArticles(append) {
 
 $(document).ready(function() {
 	section = getQuery();
-	console.log("WUT");
-	console.log("SECTION: " + section);
 	refreshArticles(false);
 
-	/*$("#loadMoreBtn").click(function(e) {
+	$("#loadMoreBtn").click(function(e) {
 		e.preventDefault();
-		page += 1;
 		refreshArticles(true);
-	});*/
+	});
 
 	//setDate();
 });

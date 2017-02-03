@@ -17,9 +17,6 @@ h4 a, h4 a:hover, #caption a, #caption a:hover, .img .credit a  {
 	line-height: 1.5em;
 }
 
-p {
-	text-indent: 50px;
-}
 
 #caption, .img .credit {
 	color:#999;

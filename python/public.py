@@ -19,7 +19,9 @@ def article():
     if request.args.get('title') is not None:
         return dumps(db.getArticles({"title": request.args.get('title')}))
     if request.args.get('lastArticleID') is not None and request.args.get('numArticles') is not None:
-        return dumps(db.getArticles({"_id":{"$gte": request.args.get('lastArticleID')}}, number=int(request.args.get("numArticles"))))
+        return dumps(db.getArticles({"_id":{"$lt": ObjectId(request.args.get('lastArticleID'))}}, number=int(request.args.get("numArticles"))))
+    if request.args.get('numArticles') is not None:
+        return dumps(db.getArticles({},number=int(request.args.get("numArticles"))))
     return dumps(db.getArticles({}))
 
 
