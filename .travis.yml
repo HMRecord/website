@@ -9,10 +9,13 @@ python:
 
 before_install:
   - sudo apt-get update -qq
+  - sudo pip install configparser
 
 install:
   - cd ~/build/HMRecord/website
   - sudo ./install.sh
+  - echo "[admin]" > config.ini
+  - echo "password = d" >> config.ini
 
 script:
   - cd ~/build/HMRecord/website
