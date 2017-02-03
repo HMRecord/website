@@ -56,7 +56,7 @@ $(document).ready(function() {
         var title = $("#newArticleTitle").val();
         var writer = $("#newArticleWriter").val();
         var sectionRadio = document.getElementById("newArticleSection");
-        var section = sectionRadio.options[sectionRadio.selectedIndex].value;
+        var sectionID = sectionRadio.options[sectionRadio.selectedIndex].value;
         var imageid = $("#newArticleImageID").val();
         var imagecredit = $("#newArticleImageCredit").val();
         var file = $("#newArticleUpload")[0].files[0];
@@ -70,9 +70,8 @@ $(document).ready(function() {
         var fileRead = new FileReader();
         fileRead.addEventListener("load", function(event) {
             var articleContents = event.target.result;
-            if (title !== "" && writer !== "" && section !== "" && file != null) {
-                console.log(section)
-                var upload = admin.newArticle({title:title,staffIDs:[getStaff.byName(writer)._id],sectionID:getSection.byTitle(section)._id,content:articleContents,date:Date(),imgID:imageid,imgCredit:imagecredit});
+            if (title !== "" && writer !== "" && file != null) {
+                var upload = admin.newArticle({title:title,staffIDs:[getStaff.byName(writer)._id],sectionID:{"$oid": sectionID},content:articleContents,date:Date(),imgID:imageid,imgCredit:imagecredit});
                 if (upload !== "good") {
                     bootAlert(false, "Upload error.", upload);
                 } else {
@@ -82,10 +81,9 @@ $(document).ready(function() {
                     $("#newArticleWriter").val("");
                     $("#newArticleImageID").val("");
                     $("#newArticleImageCredit").val("");
-                    $("#newArticleSection").val("");
                 }
             } else bootAlert(false, "Incomplete fields.", "Please check all required fields.");
-        }); fileRead.readAsText(file);
+        }); fileRead.readAsText(file,'ISO-8859-4');
     });
 
     $("#deleteArticleBtn").click(function() {

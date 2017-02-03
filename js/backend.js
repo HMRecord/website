@@ -7,6 +7,7 @@ var STAFF_URL = API_URL+"staff";
 
 var getArticle = {
     ajaxCall: function(params, callback) {
+	console.log(params)
         $.ajax({
             url: ARTICLE_URL,
             cache: false,
