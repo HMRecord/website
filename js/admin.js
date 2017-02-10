@@ -83,7 +83,7 @@ $(document).ready(function() {
                     $("#newArticleImageCredit").val("");
                 }
             } else bootAlert(false, "Incomplete fields.", "Please check all required fields.");
-        }); fileRead.readAsText(file,'ISO-8859-4');
+        }); fileRead.readAsText(file,'UTF-8');
     });
 
     $("#deleteArticleBtn").click(function() {
