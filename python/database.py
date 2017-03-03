@@ -19,8 +19,8 @@ def updateDB(newDatabase):
     db = newDatabase
 
 def getArticles(query, number=None):
-    if number is not None: articles = [a for a in db.article.find(query).sort([("_id", DESCENDING)]).limit(number)]
-    else: articles = [a for a in db.article.find(query).sort([("_id", DESCENDING)])]
+    if number is not None: articles = [a for a in db.article.find(query).sort([("date", DESCENDING)]).limit(number)]
+    else: articles = [a for a in db.article.find(query).sort([("date", DESCENDING)])]
 
     validArticles = []
     for article in articles:
