@@ -9,6 +9,10 @@ publicAPI = Blueprint('publicAPI', __name__)
 def article():
     if request.args.get('articleID') is not None:
         return dumps(db.getArticles({"_id": ObjectId(request.args.get('articleID'))}))
+    if request.args.get('lastArticleID') is not None and request.args.get('sectionID') is not None and request.args.get('numArticles') is not None:
+        return dumps(db.getArticles({"_id":{"$lt": ObjectId(request.args.get('lastArticleID'))}, "sectionID": ObjectId(request.args.get('sectionID'))}, number=int(request.args.get("numArticles"))))
+    if request.args.get('numArticles') is not None and request.args.get('sectionID') is not None:
+        return dumps(db.getArticles({"sectionID": ObjectId(request.args.get('sectionID'))},number=int(request.args.get("numArticles"))))
     if (request.args.get('sectionID') is not None) and (request.args.get('sectionID') != "undefined"):
         if request.args.get('sectionID') == "opinions":
             return dumps(db.getArticles({"$or":[{"sectionID": ObjectId('5876f88977e0ad0674052a4a')},{"sectionID": ObjectId('5876f88977e0ad0674052a4b')},{"sectionID":ObjectId('5876f88977e0ad0674052a49')}]}))

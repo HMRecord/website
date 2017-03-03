@@ -19,7 +19,7 @@ function articleHTML(article) {
 }
 
 function renderArticle(article) {
-	document.title = "HM Record: " + article.title;
+	document.title = article.title;
 
 	$("#title").text(article.title);
 
@@ -47,7 +47,7 @@ function renderArticle(article) {
 		var $img = $("#img");
 		$img.css("background-image","url('/storage/" + article.imgID + "')");
 		$img.css("background-size","100%");
-		$img.css("background-position","50% 20%");
+		$img.css("background-position","50% 40%");
 		$img.css("background-repeat","no-repeat");
 		$img.css("width","100%");
 		$img.css("height","300px");
