@@ -26,6 +26,7 @@
 			<li><a href="index.php?5893e661e10ed7e9a711ac48">Arts &amp; Entertainment</a></li>
 			<li><a href="index.php?583cb41a17942d2f1e7c1a39">Middle Division</a></li>
 			<li><a href="index.php?583cb42317942d2f1e7c1a3a">Lions' Den</a></li>
+			<li><a href="archives.php">Archives</a></li>
 		</ul>
 	</div>
 </nav>

@@ -149,7 +149,3 @@ var admin = {
         return true;
     }
 };
-
-function getArchives(callback) {
-        callback(["Fall2015","Spring2016"]);
-}
