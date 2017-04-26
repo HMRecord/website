@@ -26,7 +26,7 @@
 			<div id="articleBox"></div>
 		</div>
 
-		<?php include 'include/footer.php'; ?>
+		<?php include 'include/footer.ph'; ?>
 
 		<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
