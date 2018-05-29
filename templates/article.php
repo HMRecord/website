@@ -7,7 +7,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="shortcut icon" href="img/favicon.ico" />
-		<title>HM Record: Article Title</title>
+		<title></title>
 
 		<link href='https://fonts.googleapis.com/css?family=Crimson+Text:400,700,400italic,700italic|Lato:400,300,700,400italic,300italic' rel='stylesheet' type='text/css'>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,5 @@
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 
 		<script src="js/general.js"></script>
-		<script src="js/backend.js"></script>
-		<script src="js/article.js"></script>
 	</body>
 </html>
